@@ -1,0 +1,31 @@
+{
+  "name": "bd10-mandarin-learning-hub",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "db:generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "@tailwindcss/vite": "latest",
+    "@vitejs/plugin-react": "latest",
+    "drizzle-orm": "^0.45.3",
+    "html2canvas": "^1.4.1",
+    "lucide-react": "^1.46.0",
+    "pptx-preview": "^1.0.7",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.62.3",
+    "drizzle-kit": "^0.31.11",
+    "wrangler": "^4.145.0"
+  }
+}

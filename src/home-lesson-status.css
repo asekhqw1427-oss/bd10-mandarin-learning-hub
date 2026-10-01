@@ -1,0 +1,29 @@
+.home-lesson-status{grid-column:span 2}
+.home-lesson-status>header>button{display:flex;align-items:center;gap:3px;padding:4px 0;border:0;color:#0878dc;background:transparent;font-size:11px;font-weight:800;cursor:pointer}
+.home-lesson-status>header>button svg{width:15px;height:15px}
+.home-lesson-counts{display:flex;gap:8px;margin:0 0 9px}
+.home-lesson-counts>span{display:flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid #e0edf8;border-radius:9px;color:#58799a;background:#f7fbff;font-size:10px}
+.home-lesson-counts b{color:#0c67bd;font-size:13px}
+.home-lesson-counts>span:first-child b{color:#e8911a}
+.home-lesson-counts>span:last-child b{color:#0a9d70}
+.home-lesson-list{display:grid}
+.home-lesson-row{display:grid;grid-template-columns:32px minmax(0,1fr) auto 15px;gap:9px;align-items:center;width:100%;padding:8px 2px;border:0;border-top:1px solid #e9f1f8;text-align:left;color:#153b6d;background:white;cursor:pointer}
+.home-lesson-row:hover{background:#f7fbff}
+.home-lesson-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;color:#087ce2;background:#e9f4ff}
+.home-lesson-icon svg,.home-lesson-chevron{width:16px;height:16px}
+.home-lesson-icon.progress{color:#e18b16;background:#fff4df}
+.home-lesson-icon.completed{color:#0b9b70;background:#e5f8ef}
+.home-lesson-copy{display:grid;min-width:0;gap:3px}
+.home-lesson-copy strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}
+.home-lesson-copy small{overflow:hidden;color:#7089a1;text-overflow:ellipsis;white-space:nowrap;font-size:10px}
+.home-lesson-badge{padding:4px 7px;border-radius:999px;color:#2372b8;background:#edf6ff;font-size:9px;font-weight:700;white-space:nowrap}
+.home-lesson-badge.progress{color:#a5650b;background:#fff2d9}
+.home-lesson-badge.completed{color:#087d5d;background:#e4f8ef}
+.home-lesson-chevron{color:#8aa9c4}
+.home-no-lessons{display:flex;align-items:center;gap:12px;padding:15px;border-radius:10px;color:#7690a7;background:#f6fbff}
+.home-no-lessons>svg{width:22px;color:#2185dc}
+.home-no-lessons span{display:grid;gap:3px}
+.home-no-lessons strong{color:#244a72;font-size:12px}
+.home-no-lessons small{font-size:10px}
+@media(max-width:1150px){.home-lesson-status{grid-column:1/-1}}
+@media(max-width:720px){.home-lesson-status{grid-column:auto}.home-lesson-row{grid-template-columns:30px minmax(0,1fr) auto 14px}.home-lesson-badge{font-size:8px;padding:4px 6px}.home-lesson-counts{gap:5px}.home-lesson-counts>span{gap:4px;padding:5px 7px}}

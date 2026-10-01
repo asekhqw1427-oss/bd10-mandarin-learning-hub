@@ -1,0 +1,1787 @@
+{
+  "schemaVersion": 1,
+  "level": "A1",
+  "tocflLevel": 2,
+  "vocabularyCount": 182,
+  "uniqueCharacterCount": 221,
+  "dataSource": {
+    "name": "hanzi-writer-data",
+    "version": "2.0.1",
+    "repository": "https://github.com/chanind/hanzi-writer-data",
+    "license": "Arphic Public License",
+    "cdnTemplate": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/{char}.json"
+  },
+  "characters": [
+    {
+      "char": "男",
+      "file": "chars/男.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%94%B7.json",
+      "error": null
+    },
+    {
+      "char": "女",
+      "file": "chars/女.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A5%B3.json",
+      "error": null
+    },
+    {
+      "char": "孩",
+      "file": "chars/孩.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%AD%A9.json",
+      "error": null
+    },
+    {
+      "char": "子",
+      "file": "chars/子.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%AD%90.json",
+      "error": null
+    },
+    {
+      "char": "小",
+      "file": "chars/小.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B0%8F.json",
+      "error": null
+    },
+    {
+      "char": "姐",
+      "file": "chars/姐.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A7%90.json",
+      "error": null
+    },
+    {
+      "char": "先",
+      "file": "chars/先.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%85%88.json",
+      "error": null
+    },
+    {
+      "char": "生",
+      "file": "chars/生.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%94%9F.json",
+      "error": null
+    },
+    {
+      "char": "太",
+      "file": "chars/太.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A4%AA.json",
+      "error": null
+    },
+    {
+      "char": "兒",
+      "file": "chars/兒.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%85%92.json",
+      "error": null
+    },
+    {
+      "char": "大",
+      "file": "chars/大.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A4%A7.json",
+      "error": null
+    },
+    {
+      "char": "家",
+      "file": "chars/家.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%AE%B6.json",
+      "error": null
+    },
+    {
+      "char": "路",
+      "file": "chars/路.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%B7%AF.json",
+      "error": null
+    },
+    {
+      "char": "手",
+      "file": "chars/手.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%89%8B.json",
+      "error": null
+    },
+    {
+      "char": "機",
+      "file": "chars/機.json",
+      "strokeCount": 16,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%A9%9F.json",
+      "error": null
+    },
+    {
+      "char": "號",
+      "file": "chars/號.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%99%9F.json",
+      "error": null
+    },
+    {
+      "char": "碼",
+      "file": "chars/碼.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%A2%BC.json",
+      "error": null
+    },
+    {
+      "char": "明",
+      "file": "chars/明.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%98%8E.json",
+      "error": null
+    },
+    {
+      "char": "年",
+      "file": "chars/年.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B9%B4.json",
+      "error": null
+    },
+    {
+      "char": "去",
+      "file": "chars/去.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%8E%BB.json",
+      "error": null
+    },
+    {
+      "char": "日",
+      "file": "chars/日.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%97%A5.json",
+      "error": null
+    },
+    {
+      "char": "月",
+      "file": "chars/月.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9C%88.json",
+      "error": null
+    },
+    {
+      "char": "星",
+      "file": "chars/星.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%98%9F.json",
+      "error": null
+    },
+    {
+      "char": "期",
+      "file": "chars/期.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9C%9F.json",
+      "error": null
+    },
+    {
+      "char": "天",
+      "file": "chars/天.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A4%A9.json",
+      "error": null
+    },
+    {
+      "char": "週",
+      "file": "chars/週.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%80%B1.json",
+      "error": null
+    },
+    {
+      "char": "末",
+      "file": "chars/末.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9C%AB.json",
+      "error": null
+    },
+    {
+      "char": "從",
+      "file": "chars/從.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%BE%9E.json",
+      "error": null
+    },
+    {
+      "char": "在",
+      "file": "chars/在.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%9C%A8.json",
+      "error": null
+    },
+    {
+      "char": "笑",
+      "file": "chars/笑.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%AC%91.json",
+      "error": null
+    },
+    {
+      "char": "愛",
+      "file": "chars/愛.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%84%9B.json",
+      "error": null
+    },
+    {
+      "char": "好",
+      "file": "chars/好.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A5%BD.json",
+      "error": null
+    },
+    {
+      "char": "看",
+      "file": "chars/看.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%9C%8B.json",
+      "error": null
+    },
+    {
+      "char": "快",
+      "file": "chars/快.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%BF%AB.json",
+      "error": null
+    },
+    {
+      "char": "樂",
+      "file": "chars/樂.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%A8%82.json",
+      "error": null
+    },
+    {
+      "char": "非",
+      "file": "chars/非.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%9D%9E.json",
+      "error": null
+    },
+    {
+      "char": "常",
+      "file": "chars/常.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B8%B8.json",
+      "error": null
+    },
+    {
+      "char": "工",
+      "file": "chars/工.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B7%A5.json",
+      "error": null
+    },
+    {
+      "char": "作",
+      "file": "chars/作.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BD%9C.json",
+      "error": null
+    },
+    {
+      "char": "醫",
+      "file": "chars/醫.json",
+      "strokeCount": 18,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%86%AB.json",
+      "error": null
+    },
+    {
+      "char": "院",
+      "file": "chars/院.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%99%A2.json",
+      "error": null
+    },
+    {
+      "char": "公",
+      "file": "chars/公.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%85%AC.json",
+      "error": null
+    },
+    {
+      "char": "司",
+      "file": "chars/司.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%8F%B8.json",
+      "error": null
+    },
+    {
+      "char": "賣",
+      "file": "chars/賣.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%B3%A3.json",
+      "error": null
+    },
+    {
+      "char": "準",
+      "file": "chars/準.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%BA%96.json",
+      "error": null
+    },
+    {
+      "char": "備",
+      "file": "chars/備.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%82%99.json",
+      "error": null
+    },
+    {
+      "char": "一",
+      "file": "chars/一.json",
+      "strokeCount": 1,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%B8%80.json",
+      "error": null
+    },
+    {
+      "char": "點",
+      "file": "chars/點.json",
+      "strokeCount": 17,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%BB%9E.json",
+      "error": null
+    },
+    {
+      "char": "些",
+      "file": "chars/些.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BA%9B.json",
+      "error": null
+    },
+    {
+      "char": "本",
+      "file": "chars/本.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9C%AC.json",
+      "error": null
+    },
+    {
+      "char": "張",
+      "file": "chars/張.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%BC%B5.json",
+      "error": null
+    },
+    {
+      "char": "中",
+      "file": "chars/中.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%B8%AD.json",
+      "error": null
+    },
+    {
+      "char": "學",
+      "file": "chars/學.json",
+      "strokeCount": 16,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%AD%B8.json",
+      "error": null
+    },
+    {
+      "char": "級",
+      "file": "chars/級.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%B4%9A.json",
+      "error": null
+    },
+    {
+      "char": "英",
+      "file": "chars/英.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%8B%B1.json",
+      "error": null
+    },
+    {
+      "char": "文",
+      "file": "chars/文.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%96%87.json",
+      "error": null
+    },
+    {
+      "char": "紙",
+      "file": "chars/紙.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%B4%99.json",
+      "error": null
+    },
+    {
+      "char": "問",
+      "file": "chars/問.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%95%8F.json",
+      "error": null
+    },
+    {
+      "char": "題",
+      "file": "chars/題.json",
+      "strokeCount": 18,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%A1%8C.json",
+      "error": null
+    },
+    {
+      "char": "意",
+      "file": "chars/意.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%84%8F.json",
+      "error": null
+    },
+    {
+      "char": "思",
+      "file": "chars/思.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%80%9D.json",
+      "error": null
+    },
+    {
+      "char": "圖",
+      "file": "chars/圖.json",
+      "strokeCount": 14,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%9C%96.json",
+      "error": null
+    },
+    {
+      "char": "書",
+      "file": "chars/書.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9B%B8.json",
+      "error": null
+    },
+    {
+      "char": "館",
+      "file": "chars/館.json",
+      "strokeCount": 16,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%A4%A8.json",
+      "error": null
+    },
+    {
+      "char": "數",
+      "file": "chars/數.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%95%B8.json",
+      "error": null
+    },
+    {
+      "char": "歷",
+      "file": "chars/歷.json",
+      "strokeCount": 16,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%AD%B7.json",
+      "error": null
+    },
+    {
+      "char": "史",
+      "file": "chars/史.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%8F%B2.json",
+      "error": null
+    },
+    {
+      "char": "餐",
+      "file": "chars/餐.json",
+      "strokeCount": 16,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%A4%90.json",
+      "error": null
+    },
+    {
+      "char": "廳",
+      "file": "chars/廳.json",
+      "strokeCount": 25,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%BB%B3.json",
+      "error": null
+    },
+    {
+      "char": "飯",
+      "file": "chars/飯.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%A3%AF.json",
+      "error": null
+    },
+    {
+      "char": "習",
+      "file": "chars/習.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%BF%92.json",
+      "error": null
+    },
+    {
+      "char": "參",
+      "file": "chars/參.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%8F%83.json",
+      "error": null
+    },
+    {
+      "char": "加",
+      "file": "chars/加.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%8A%A0.json",
+      "error": null
+    },
+    {
+      "char": "畫",
+      "file": "chars/畫.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%95%AB.json",
+      "error": null
+    },
+    {
+      "char": "讀",
+      "file": "chars/讀.json",
+      "strokeCount": 22,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%AE%80.json",
+      "error": null
+    },
+    {
+      "char": "會",
+      "file": "chars/會.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9C%83.json",
+      "error": null
+    },
+    {
+      "char": "有",
+      "file": "chars/有.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9C%89.json",
+      "error": null
+    },
+    {
+      "char": "趣",
+      "file": "chars/趣.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%B6%A3.json",
+      "error": null
+    },
+    {
+      "char": "為",
+      "file": "chars/為.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%82%BA.json",
+      "error": null
+    },
+    {
+      "char": "什",
+      "file": "chars/什.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BB%80.json",
+      "error": null
+    },
+    {
+      "char": "麼",
+      "file": "chars/麼.json",
+      "strokeCount": 14,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%BA%BC.json",
+      "error": null
+    },
+    {
+      "char": "下",
+      "file": "chars/下.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%B8%8B.json",
+      "error": null
+    },
+    {
+      "char": "課",
+      "file": "chars/課.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%AA%B2.json",
+      "error": null
+    },
+    {
+      "char": "說",
+      "file": "chars/說.json",
+      "strokeCount": 14,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%AA%AA.json",
+      "error": null
+    },
+    {
+      "char": "話",
+      "file": "chars/話.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%A9%B1.json",
+      "error": null
+    },
+    {
+      "char": "考",
+      "file": "chars/考.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%80%83.json",
+      "error": null
+    },
+    {
+      "char": "試",
+      "file": "chars/試.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%A9%A6.json",
+      "error": null
+    },
+    {
+      "char": "懂",
+      "file": "chars/懂.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%87%82.json",
+      "error": null
+    },
+    {
+      "char": "氣",
+      "file": "chars/氣.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%B0%A3.json",
+      "error": null
+    },
+    {
+      "char": "房",
+      "file": "chars/房.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%88%BF.json",
+      "error": null
+    },
+    {
+      "char": "門",
+      "file": "chars/門.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%96%80.json",
+      "error": null
+    },
+    {
+      "char": "山",
+      "file": "chars/山.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B1%B1.json",
+      "error": null
+    },
+    {
+      "char": "客",
+      "file": "chars/客.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%AE%A2.json",
+      "error": null
+    },
+    {
+      "char": "河",
+      "file": "chars/河.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%B2%B3.json",
+      "error": null
+    },
+    {
+      "char": "狗",
+      "file": "chars/狗.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%8B%97.json",
+      "error": null
+    },
+    {
+      "char": "花",
+      "file": "chars/花.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%8A%B1.json",
+      "error": null
+    },
+    {
+      "char": "風",
+      "file": "chars/風.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%A2%A8.json",
+      "error": null
+    },
+    {
+      "char": "海",
+      "file": "chars/海.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%B5%B7.json",
+      "error": null
+    },
+    {
+      "char": "魚",
+      "file": "chars/魚.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%AD%9A.json",
+      "error": null
+    },
+    {
+      "char": "樹",
+      "file": "chars/樹.json",
+      "strokeCount": 16,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%A8%B9.json",
+      "error": null
+    },
+    {
+      "char": "開",
+      "file": "chars/開.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%96%8B.json",
+      "error": null
+    },
+    {
+      "char": "冷",
+      "file": "chars/冷.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%86%B7.json",
+      "error": null
+    },
+    {
+      "char": "熱",
+      "file": "chars/熱.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%86%B1.json",
+      "error": null
+    },
+    {
+      "char": "洗",
+      "file": "chars/洗.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%B4%97.json",
+      "error": null
+    },
+    {
+      "char": "澡",
+      "file": "chars/澡.json",
+      "strokeCount": 16,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%BE%A1.json",
+      "error": null
+    },
+    {
+      "char": "咖",
+      "file": "chars/咖.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%92%96.json",
+      "error": null
+    },
+    {
+      "char": "啡",
+      "file": "chars/啡.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%95%A1.json",
+      "error": null
+    },
+    {
+      "char": "茶",
+      "file": "chars/茶.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%8C%B6.json",
+      "error": null
+    },
+    {
+      "char": "活",
+      "file": "chars/活.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%B4%BB.json",
+      "error": null
+    },
+    {
+      "char": "用",
+      "file": "chars/用.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%94%A8.json",
+      "error": null
+    },
+    {
+      "char": "穿",
+      "file": "chars/穿.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%A9%BF.json",
+      "error": null
+    },
+    {
+      "char": "起",
+      "file": "chars/起.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%B5%B7.json",
+      "error": null
+    },
+    {
+      "char": "床",
+      "file": "chars/床.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%BA%8A.json",
+      "error": null
+    },
+    {
+      "char": "方",
+      "file": "chars/方.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%96%B9.json",
+      "error": null
+    },
+    {
+      "char": "便",
+      "file": "chars/便.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BE%BF.json",
+      "error": null
+    },
+    {
+      "char": "睡",
+      "file": "chars/睡.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%9D%A1.json",
+      "error": null
+    },
+    {
+      "char": "覺",
+      "file": "chars/覺.json",
+      "strokeCount": 20,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%A6%BA.json",
+      "error": null
+    },
+    {
+      "char": "每",
+      "file": "chars/每.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%AF%8F.json",
+      "error": null
+    },
+    {
+      "char": "次",
+      "file": "chars/次.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%AC%A1.json",
+      "error": null
+    },
+    {
+      "char": "音",
+      "file": "chars/音.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%9F%B3.json",
+      "error": null
+    },
+    {
+      "char": "票",
+      "file": "chars/票.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%A5%A8.json",
+      "error": null
+    },
+    {
+      "char": "照",
+      "file": "chars/照.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%85%A7.json",
+      "error": null
+    },
+    {
+      "char": "片",
+      "file": "chars/片.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%89%87.json",
+      "error": null
+    },
+    {
+      "char": "打",
+      "file": "chars/打.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%89%93.json",
+      "error": null
+    },
+    {
+      "char": "玩",
+      "file": "chars/玩.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%8E%A9.json",
+      "error": null
+    },
+    {
+      "char": "跑",
+      "file": "chars/跑.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%B7%91.json",
+      "error": null
+    },
+    {
+      "char": "運",
+      "file": "chars/運.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%81%8B.json",
+      "error": null
+    },
+    {
+      "char": "動",
+      "file": "chars/動.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%8B%95.json",
+      "error": null
+    },
+    {
+      "char": "始",
+      "file": "chars/始.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A7%8B.json",
+      "error": null
+    },
+    {
+      "char": "走",
+      "file": "chars/走.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%B5%B0.json",
+      "error": null
+    },
+    {
+      "char": "唱",
+      "file": "chars/唱.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%94%B1.json",
+      "error": null
+    },
+    {
+      "char": "歌",
+      "file": "chars/歌.json",
+      "strokeCount": 14,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%AD%8C.json",
+      "error": null
+    },
+    {
+      "char": "信",
+      "file": "chars/信.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BF%A1.json",
+      "error": null
+    },
+    {
+      "char": "喂",
+      "file": "chars/喂.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%96%82.json",
+      "error": null
+    },
+    {
+      "char": "介",
+      "file": "chars/介.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BB%8B.json",
+      "error": null
+    },
+    {
+      "char": "紹",
+      "file": "chars/紹.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%B4%B9.json",
+      "error": null
+    },
+    {
+      "char": "換",
+      "file": "chars/換.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%8F%9B.json",
+      "error": null
+    },
+    {
+      "char": "認",
+      "file": "chars/認.json",
+      "strokeCount": 14,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%AA%8D.json",
+      "error": null
+    },
+    {
+      "char": "識",
+      "file": "chars/識.json",
+      "strokeCount": 19,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%AD%98.json",
+      "error": null
+    },
+    {
+      "char": "沒",
+      "file": "chars/沒.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%B2%92.json",
+      "error": null
+    },
+    {
+      "char": "關",
+      "file": "chars/關.json",
+      "strokeCount": 19,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%97%9C.json",
+      "error": null
+    },
+    {
+      "char": "係",
+      "file": "chars/係.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BF%82.json",
+      "error": null
+    },
+    {
+      "char": "怎",
+      "file": "chars/怎.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%80%8E.json",
+      "error": null
+    },
+    {
+      "char": "哪",
+      "file": "chars/哪.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%93%AA.json",
+      "error": null
+    },
+    {
+      "char": "裡",
+      "file": "chars/裡.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%A3%A1.json",
+      "error": null
+    },
+    {
+      "char": "這",
+      "file": "chars/這.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%80%99.json",
+      "error": null
+    },
+    {
+      "char": "那",
+      "file": "chars/那.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%82%A3.json",
+      "error": null
+    },
+    {
+      "char": "上",
+      "file": "chars/上.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%B8%8A.json",
+      "error": null
+    },
+    {
+      "char": "外",
+      "file": "chars/外.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A4%96.json",
+      "error": null
+    },
+    {
+      "char": "前",
+      "file": "chars/前.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%89%8D.json",
+      "error": null
+    },
+    {
+      "char": "後",
+      "file": "chars/後.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%BE%8C.json",
+      "error": null
+    },
+    {
+      "char": "右",
+      "file": "chars/右.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%8F%B3.json",
+      "error": null
+    },
+    {
+      "char": "邊",
+      "file": "chars/邊.json",
+      "strokeCount": 18,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%82%8A.json",
+      "error": null
+    },
+    {
+      "char": "左",
+      "file": "chars/左.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B7%A6.json",
+      "error": null
+    },
+    {
+      "char": "旁",
+      "file": "chars/旁.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%97%81.json",
+      "error": null
+    },
+    {
+      "char": "間",
+      "file": "chars/間.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%96%93.json",
+      "error": null
+    },
+    {
+      "char": "地",
+      "file": "chars/地.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%9C%B0.json",
+      "error": null
+    },
+    {
+      "char": "鐵",
+      "file": "chars/鐵.json",
+      "strokeCount": 21,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%90%B5.json",
+      "error": null
+    },
+    {
+      "char": "附",
+      "file": "chars/附.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%99%84.json",
+      "error": null
+    },
+    {
+      "char": "近",
+      "file": "chars/近.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%BF%91.json",
+      "error": null
+    },
+    {
+      "char": "離",
+      "file": "chars/離.json",
+      "strokeCount": 18,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%9B%A2.json",
+      "error": null
+    },
+    {
+      "char": "往",
+      "file": "chars/往.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%BE%80.json",
+      "error": null
+    },
+    {
+      "char": "送",
+      "file": "chars/送.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%80%81.json",
+      "error": null
+    },
+    {
+      "char": "帶",
+      "file": "chars/帶.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B8%B6.json",
+      "error": null
+    },
+    {
+      "char": "放",
+      "file": "chars/放.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%94%BE.json",
+      "error": null
+    },
+    {
+      "char": "拿",
+      "file": "chars/拿.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%8B%BF.json",
+      "error": null
+    },
+    {
+      "char": "進",
+      "file": "chars/進.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%80%B2.json",
+      "error": null
+    },
+    {
+      "char": "來",
+      "file": "chars/來.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BE%86.json",
+      "error": null
+    },
+    {
+      "char": "出",
+      "file": "chars/出.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%87%BA.json",
+      "error": null
+    },
+    {
+      "char": "站",
+      "file": "chars/站.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%AB%99.json",
+      "error": null
+    },
+    {
+      "char": "慢",
+      "file": "chars/慢.json",
+      "strokeCount": 14,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%85%A2.json",
+      "error": null
+    },
+    {
+      "char": "遠",
+      "file": "chars/遠.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%81%A0.json",
+      "error": null
+    },
+    {
+      "char": "身",
+      "file": "chars/身.json",
+      "strokeCount": 7,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%BA%AB.json",
+      "error": null
+    },
+    {
+      "char": "體",
+      "file": "chars/體.json",
+      "strokeCount": 23,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%AB%94.json",
+      "error": null
+    },
+    {
+      "char": "眼",
+      "file": "chars/眼.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%9C%BC.json",
+      "error": null
+    },
+    {
+      "char": "睛",
+      "file": "chars/睛.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%9D%9B.json",
+      "error": null
+    },
+    {
+      "char": "藥",
+      "file": "chars/藥.json",
+      "strokeCount": 19,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%97%A5.json",
+      "error": null
+    },
+    {
+      "char": "累",
+      "file": "chars/累.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%B4%AF.json",
+      "error": null
+    },
+    {
+      "char": "雙",
+      "file": "chars/雙.json",
+      "strokeCount": 18,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%9B%99.json",
+      "error": null
+    },
+    {
+      "char": "元",
+      "file": "chars/元.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%85%83.json",
+      "error": null
+    },
+    {
+      "char": "鞋",
+      "file": "chars/鞋.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%9E%8B.json",
+      "error": null
+    },
+    {
+      "char": "褲",
+      "file": "chars/褲.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%A4%B2.json",
+      "error": null
+    },
+    {
+      "char": "市",
+      "file": "chars/市.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B8%82.json",
+      "error": null
+    },
+    {
+      "char": "場",
+      "file": "chars/場.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A0%B4.json",
+      "error": null
+    },
+    {
+      "char": "衣",
+      "file": "chars/衣.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%A1%A3.json",
+      "error": null
+    },
+    {
+      "char": "服",
+      "file": "chars/服.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9C%8D.json",
+      "error": null
+    },
+    {
+      "char": "比",
+      "file": "chars/比.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%AF%94.json",
+      "error": null
+    },
+    {
+      "char": "要",
+      "file": "chars/要.json",
+      "strokeCount": 9,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%A6%81.json",
+      "error": null
+    },
+    {
+      "char": "長",
+      "file": "chars/長.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%95%B7.json",
+      "error": null
+    },
+    {
+      "char": "新",
+      "file": "chars/新.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%96%B0.json",
+      "error": null
+    },
+    {
+      "char": "樣",
+      "file": "chars/樣.json",
+      "strokeCount": 15,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%A8%A3.json",
+      "error": null
+    },
+    {
+      "char": "吃",
+      "file": "chars/吃.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%90%83.json",
+      "error": null
+    },
+    {
+      "char": "件",
+      "file": "chars/件.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BB%B6.json",
+      "error": null
+    },
+    {
+      "char": "杯",
+      "file": "chars/杯.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9D%AF.json",
+      "error": null
+    },
+    {
+      "char": "瓶",
+      "file": "chars/瓶.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E7%93%B6.json",
+      "error": null
+    },
+    {
+      "char": "菜",
+      "file": "chars/菜.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%8F%9C.json",
+      "error": null
+    },
+    {
+      "char": "蘋",
+      "file": "chars/蘋.json",
+      "strokeCount": 20,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%98%8B.json",
+      "error": null
+    },
+    {
+      "char": "果",
+      "file": "chars/果.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%9E%9C.json",
+      "error": null
+    },
+    {
+      "char": "肉",
+      "file": "chars/肉.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%82%89.json",
+      "error": null
+    },
+    {
+      "char": "酒",
+      "file": "chars/酒.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E9%85%92.json",
+      "error": null
+    },
+    {
+      "char": "喝",
+      "file": "chars/喝.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%96%9D.json",
+      "error": null
+    },
+    {
+      "char": "少",
+      "file": "chars/少.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B0%91.json",
+      "error": null
+    },
+    {
+      "char": "多",
+      "file": "chars/多.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A4%9A.json",
+      "error": null
+    },
+    {
+      "char": "因",
+      "file": "chars/因.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%9B%A0.json",
+      "error": null
+    },
+    {
+      "char": "和",
+      "file": "chars/和.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%92%8C.json",
+      "error": null
+    },
+    {
+      "char": "所",
+      "file": "chars/所.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%89%80.json",
+      "error": null
+    },
+    {
+      "char": "以",
+      "file": "chars/以.json",
+      "strokeCount": 4,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%BB%A5.json",
+      "error": null
+    },
+    {
+      "char": "跟",
+      "file": "chars/跟.json",
+      "strokeCount": 13,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%B7%9F.json",
+      "error": null
+    },
+    {
+      "char": "著",
+      "file": "chars/著.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%91%97.json",
+      "error": null
+    },
+    {
+      "char": "可",
+      "file": "chars/可.json",
+      "strokeCount": 5,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%8F%AF.json",
+      "error": null
+    },
+    {
+      "char": "能",
+      "file": "chars/能.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%83%BD.json",
+      "error": null
+    },
+    {
+      "char": "姓",
+      "file": "chars/姓.json",
+      "strokeCount": 8,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%A7%93.json",
+      "error": null
+    },
+    {
+      "char": "名",
+      "file": "chars/名.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%90%8D.json",
+      "error": null
+    },
+    {
+      "char": "國",
+      "file": "chars/國.json",
+      "strokeCount": 11,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%9C%8B.json",
+      "error": null
+    },
+    {
+      "char": "時",
+      "file": "chars/時.json",
+      "strokeCount": 10,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%99%82.json",
+      "error": null
+    },
+    {
+      "char": "千",
+      "file": "chars/千.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%8D%83.json",
+      "error": null
+    },
+    {
+      "char": "老",
+      "file": "chars/老.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E8%80%81.json",
+      "error": null
+    },
+    {
+      "char": "對",
+      "file": "chars/對.json",
+      "strokeCount": 14,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B0%8D.json",
+      "error": null
+    },
+    {
+      "char": "早",
+      "file": "chars/早.json",
+      "strokeCount": 6,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E6%97%A9.json",
+      "error": null
+    },
+    {
+      "char": "久",
+      "file": "chars/久.json",
+      "strokeCount": 3,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E4%B9%85.json",
+      "error": null
+    },
+    {
+      "char": "就",
+      "file": "chars/就.json",
+      "strokeCount": 12,
+      "status": "ready",
+      "source": "https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0.1/%E5%B0%B1.json",
+      "error": null
+    }
+  ],
+  "generatedAt": "2026-09-21T22:55:25.744Z",
+  "downloadedCount": 221,
+  "failedCount": 0
+}

@@ -1,0 +1,7 @@
+Stroke-data source intended by this package:
+- Hanzi Writer Data: https://github.com/chanind/hanzi-writer-data
+- Package version pinned by downloader: 2.0.1
+- Original data lineage: Make Me A Hanzi / Arphic Technology fonts
+- Data license: Arphic Public License
+
+Please preserve the applicable license file/notice when bundling the downloaded geometry into a deployed application.

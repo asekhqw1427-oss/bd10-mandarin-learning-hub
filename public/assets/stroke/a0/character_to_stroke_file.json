@@ -1,0 +1,837 @@
+[
+  {
+    "character": "我",
+    "unicode": "U+6211",
+    "stroke_file": "02_HANZI_STROKE/cht/62.hanzi"
+  },
+  {
+    "character": "你",
+    "unicode": "U+4F60",
+    "stroke_file": "02_HANZI_STROKE/cht/4f.hanzi"
+  },
+  {
+    "character": "妳",
+    "unicode": "U+59B3",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "他",
+    "unicode": "U+4ED6",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "她",
+    "unicode": "U+5979",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "們",
+    "unicode": "U+5011",
+    "stroke_file": "02_HANZI_STROKE/cht/50.hanzi"
+  },
+  {
+    "character": "您",
+    "unicode": "U+60A8",
+    "stroke_file": "02_HANZI_STROKE/cht/60.hanzi"
+  },
+  {
+    "character": "誰",
+    "unicode": "U+8AB0",
+    "stroke_file": "02_HANZI_STROKE/cht/8a.hanzi"
+  },
+  {
+    "character": "人",
+    "unicode": "U+4EBA",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "中",
+    "unicode": "U+4E2D",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "國",
+    "unicode": "U+570B",
+    "stroke_file": "02_HANZI_STROKE/cht/57.hanzi"
+  },
+  {
+    "character": "美",
+    "unicode": "U+7F8E",
+    "stroke_file": "02_HANZI_STROKE/cht/7f.hanzi"
+  },
+  {
+    "character": "日",
+    "unicode": "U+65E5",
+    "stroke_file": "02_HANZI_STROKE/cht/65.hanzi"
+  },
+  {
+    "character": "本",
+    "unicode": "U+672C",
+    "stroke_file": "02_HANZI_STROKE/cht/67.hanzi"
+  },
+  {
+    "character": "台",
+    "unicode": "U+53F0",
+    "stroke_file": "02_HANZI_STROKE/cht/53.hanzi"
+  },
+  {
+    "character": "灣",
+    "unicode": "U+7063",
+    "stroke_file": "02_HANZI_STROKE/cht/70.hanzi"
+  },
+  {
+    "character": "名",
+    "unicode": "U+540D",
+    "stroke_file": "02_HANZI_STROKE/cht/54.hanzi"
+  },
+  {
+    "character": "字",
+    "unicode": "U+5B57",
+    "stroke_file": "02_HANZI_STROKE/cht/5b.hanzi"
+  },
+  {
+    "character": "家",
+    "unicode": "U+5BB6",
+    "stroke_file": "02_HANZI_STROKE/cht/5b.hanzi"
+  },
+  {
+    "character": "電",
+    "unicode": "U+96FB",
+    "stroke_file": "02_HANZI_STROKE/cht/96.hanzi"
+  },
+  {
+    "character": "話",
+    "unicode": "U+8A71",
+    "stroke_file": "02_HANZI_STROKE/cht/8a.hanzi"
+  },
+  {
+    "character": "現",
+    "unicode": "U+73FE",
+    "stroke_file": "02_HANZI_STROKE/cht/73.hanzi"
+  },
+  {
+    "character": "在",
+    "unicode": "U+5728",
+    "stroke_file": "02_HANZI_STROKE/cht/57.hanzi"
+  },
+  {
+    "character": "今",
+    "unicode": "U+4ECA",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "年",
+    "unicode": "U+5E74",
+    "stroke_file": "02_HANZI_STROKE/cht/5e.hanzi"
+  },
+  {
+    "character": "天",
+    "unicode": "U+5929",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "明",
+    "unicode": "U+660E",
+    "stroke_file": "02_HANZI_STROKE/cht/66.hanzi"
+  },
+  {
+    "character": "昨",
+    "unicode": "U+6628",
+    "stroke_file": "02_HANZI_STROKE/cht/66.hanzi"
+  },
+  {
+    "character": "早",
+    "unicode": "U+65E9",
+    "stroke_file": "02_HANZI_STROKE/cht/65.hanzi"
+  },
+  {
+    "character": "上",
+    "unicode": "U+4E0A",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "午",
+    "unicode": "U+5348",
+    "stroke_file": "02_HANZI_STROKE/cht/53.hanzi"
+  },
+  {
+    "character": "下",
+    "unicode": "U+4E0B",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "晚",
+    "unicode": "U+665A",
+    "stroke_file": "02_HANZI_STROKE/cht/66.hanzi"
+  },
+  {
+    "character": "一",
+    "unicode": "U+4E00",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "二",
+    "unicode": "U+4E8C",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "三",
+    "unicode": "U+4E09",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "四",
+    "unicode": "U+56DB",
+    "stroke_file": "02_HANZI_STROKE/cht/56.hanzi"
+  },
+  {
+    "character": "五",
+    "unicode": "U+4E94",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "六",
+    "unicode": "U+516D",
+    "stroke_file": "02_HANZI_STROKE/cht/51.hanzi"
+  },
+  {
+    "character": "七",
+    "unicode": "U+4E03",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "八",
+    "unicode": "U+516B",
+    "stroke_file": "02_HANZI_STROKE/cht/51.hanzi"
+  },
+  {
+    "character": "九",
+    "unicode": "U+4E5D",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "十",
+    "unicode": "U+5341",
+    "stroke_file": "02_HANZI_STROKE/cht/53.hanzi"
+  },
+  {
+    "character": "零",
+    "unicode": "U+96F6",
+    "stroke_file": "02_HANZI_STROKE/cht/96.hanzi"
+  },
+  {
+    "character": "兩",
+    "unicode": "U+5169",
+    "stroke_file": "02_HANZI_STROKE/cht/51.hanzi"
+  },
+  {
+    "character": "時",
+    "unicode": "U+6642",
+    "stroke_file": "02_HANZI_STROKE/cht/66.hanzi"
+  },
+  {
+    "character": "候",
+    "unicode": "U+5019",
+    "stroke_file": "02_HANZI_STROKE/cht/50.hanzi"
+  },
+  {
+    "character": "百",
+    "unicode": "U+767E",
+    "stroke_file": "02_HANZI_STROKE/cht/76.hanzi"
+  },
+  {
+    "character": "半",
+    "unicode": "U+534A",
+    "stroke_file": "02_HANZI_STROKE/cht/53.hanzi"
+  },
+  {
+    "character": "爸",
+    "unicode": "U+7238",
+    "stroke_file": "02_HANZI_STROKE/cht/72.hanzi"
+  },
+  {
+    "character": "媽",
+    "unicode": "U+5ABD",
+    "stroke_file": "02_HANZI_STROKE/cht/5a.hanzi"
+  },
+  {
+    "character": "哥",
+    "unicode": "U+54E5",
+    "stroke_file": "02_HANZI_STROKE/cht/54.hanzi"
+  },
+  {
+    "character": "弟",
+    "unicode": "U+5F1F",
+    "stroke_file": "02_HANZI_STROKE/cht/5f.hanzi"
+  },
+  {
+    "character": "姊",
+    "unicode": "U+59CA",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "姐",
+    "unicode": "U+59D0",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "妹",
+    "unicode": "U+59B9",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "的",
+    "unicode": "U+7684",
+    "stroke_file": "02_HANZI_STROKE/cht/76.hanzi"
+  },
+  {
+    "character": "第",
+    "unicode": "U+7B2C",
+    "stroke_file": "02_HANZI_STROKE/cht/7b.hanzi"
+  },
+  {
+    "character": "分",
+    "unicode": "U+5206",
+    "stroke_file": "02_HANZI_STROKE/cht/52.hanzi"
+  },
+  {
+    "character": "點",
+    "unicode": "U+9EDE",
+    "stroke_file": "02_HANZI_STROKE/cht/9e.hanzi"
+  },
+  {
+    "character": "個",
+    "unicode": "U+500B",
+    "stroke_file": "02_HANZI_STROKE/cht/50.hanzi"
+  },
+  {
+    "character": "歲",
+    "unicode": "U+6B72",
+    "stroke_file": "02_HANZI_STROKE/cht/6b.hanzi"
+  },
+  {
+    "character": "住",
+    "unicode": "U+4F4F",
+    "stroke_file": "02_HANZI_STROKE/cht/4f.hanzi"
+  },
+  {
+    "character": "來",
+    "unicode": "U+4F86",
+    "stroke_file": "02_HANZI_STROKE/cht/4f.hanzi"
+  },
+  {
+    "character": "是",
+    "unicode": "U+662F",
+    "stroke_file": "02_HANZI_STROKE/cht/66.hanzi"
+  },
+  {
+    "character": "姓",
+    "unicode": "U+59D3",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "覺",
+    "unicode": "U+89BA",
+    "stroke_file": "02_HANZI_STROKE/cht/89.hanzi"
+  },
+  {
+    "character": "得",
+    "unicode": "U+5F97",
+    "stroke_file": "02_HANZI_STROKE/cht/5f.hanzi"
+  },
+  {
+    "character": "喜",
+    "unicode": "U+559C",
+    "stroke_file": "02_HANZI_STROKE/cht/55.hanzi"
+  },
+  {
+    "character": "歡",
+    "unicode": "U+6B61",
+    "stroke_file": "02_HANZI_STROKE/cht/6b.hanzi"
+  },
+  {
+    "character": "打",
+    "unicode": "U+6253",
+    "stroke_file": "02_HANZI_STROKE/cht/62.hanzi"
+  },
+  {
+    "character": "高",
+    "unicode": "U+9AD8",
+    "stroke_file": "02_HANZI_STROKE/cht/9a.hanzi"
+  },
+  {
+    "character": "興",
+    "unicode": "U+8208",
+    "stroke_file": "02_HANZI_STROKE/cht/82.hanzi"
+  },
+  {
+    "character": "漂",
+    "unicode": "U+6F02",
+    "stroke_file": "02_HANZI_STROKE/cht/6f.hanzi"
+  },
+  {
+    "character": "亮",
+    "unicode": "U+4EAE",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "好",
+    "unicode": "U+597D",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "很",
+    "unicode": "U+5F88",
+    "stroke_file": "02_HANZI_STROKE/cht/5f.hanzi"
+  },
+  {
+    "character": "真",
+    "unicode": "U+771F",
+    "stroke_file": "02_HANZI_STROKE/cht/77.hanzi"
+  },
+  {
+    "character": "腦",
+    "unicode": "U+8166",
+    "stroke_file": "02_HANZI_STROKE/cht/81.hanzi"
+  },
+  {
+    "character": "老",
+    "unicode": "U+8001",
+    "stroke_file": "02_HANZI_STROKE/cht/80.hanzi"
+  },
+  {
+    "character": "師",
+    "unicode": "U+5E2B",
+    "stroke_file": "02_HANZI_STROKE/cht/5e.hanzi"
+  },
+  {
+    "character": "買",
+    "unicode": "U+8CB7",
+    "stroke_file": "02_HANZI_STROKE/cht/8c.hanzi"
+  },
+  {
+    "character": "忙",
+    "unicode": "U+5FD9",
+    "stroke_file": "02_HANZI_STROKE/cht/5f.hanzi"
+  },
+  {
+    "character": "學",
+    "unicode": "U+5B78",
+    "stroke_file": "02_HANZI_STROKE/cht/5b.hanzi"
+  },
+  {
+    "character": "生",
+    "unicode": "U+751F",
+    "stroke_file": "02_HANZI_STROKE/cht/75.hanzi"
+  },
+  {
+    "character": "大",
+    "unicode": "U+5927",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "校",
+    "unicode": "U+6821",
+    "stroke_file": "02_HANZI_STROKE/cht/68.hanzi"
+  },
+  {
+    "character": "筆",
+    "unicode": "U+7B46",
+    "stroke_file": "02_HANZI_STROKE/cht/7b.hanzi"
+  },
+  {
+    "character": "問",
+    "unicode": "U+554F",
+    "stroke_file": "02_HANZI_STROKE/cht/55.hanzi"
+  },
+  {
+    "character": "說",
+    "unicode": "U+8AAA",
+    "stroke_file": "02_HANZI_STROKE/cht/8a.hanzi"
+  },
+  {
+    "character": "寫",
+    "unicode": "U+5BEB",
+    "stroke_file": "02_HANZI_STROKE/cht/5b.hanzi"
+  },
+  {
+    "character": "聽",
+    "unicode": "U+807D",
+    "stroke_file": "02_HANZI_STROKE/cht/80.hanzi"
+  },
+  {
+    "character": "練",
+    "unicode": "U+7DF4",
+    "stroke_file": "02_HANZI_STROKE/cht/7d.hanzi"
+  },
+  {
+    "character": "習",
+    "unicode": "U+7FD2",
+    "stroke_file": "02_HANZI_STROKE/cht/7f.hanzi"
+  },
+  {
+    "character": "能",
+    "unicode": "U+80FD",
+    "stroke_file": "02_HANZI_STROKE/cht/80.hanzi"
+  },
+  {
+    "character": "可",
+    "unicode": "U+53EF",
+    "stroke_file": "02_HANZI_STROKE/cht/53.hanzi"
+  },
+  {
+    "character": "以",
+    "unicode": "U+4EE5",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "課",
+    "unicode": "U+8AB2",
+    "stroke_file": "02_HANZI_STROKE/cht/8a.hanzi"
+  },
+  {
+    "character": "知",
+    "unicode": "U+77E5",
+    "stroke_file": "02_HANZI_STROKE/cht/77.hanzi"
+  },
+  {
+    "character": "道",
+    "unicode": "U+9053",
+    "stroke_file": "02_HANZI_STROKE/cht/90.hanzi"
+  },
+  {
+    "character": "視",
+    "unicode": "U+8996",
+    "stroke_file": "02_HANZI_STROKE/cht/89.hanzi"
+  },
+  {
+    "character": "機",
+    "unicode": "U+6A5F",
+    "stroke_file": "02_HANZI_STROKE/cht/6a.hanzi"
+  },
+  {
+    "character": "水",
+    "unicode": "U+6C34",
+    "stroke_file": "02_HANZI_STROKE/cht/6c.hanzi"
+  },
+  {
+    "character": "再",
+    "unicode": "U+518D",
+    "stroke_file": "02_HANZI_STROKE/cht/51.hanzi"
+  },
+  {
+    "character": "書",
+    "unicode": "U+66F8",
+    "stroke_file": "02_HANZI_STROKE/cht/66.hanzi"
+  },
+  {
+    "character": "影",
+    "unicode": "U+5F71",
+    "stroke_file": "02_HANZI_STROKE/cht/5f.hanzi"
+  },
+  {
+    "character": "前",
+    "unicode": "U+524D",
+    "stroke_file": "02_HANZI_STROKE/cht/52.hanzi"
+  },
+  {
+    "character": "後",
+    "unicode": "U+5F8C",
+    "stroke_file": "02_HANZI_STROKE/cht/5f.hanzi"
+  },
+  {
+    "character": "走",
+    "unicode": "U+8D70",
+    "stroke_file": "02_HANZI_STROKE/cht/8d.hanzi"
+  },
+  {
+    "character": "等",
+    "unicode": "U+7B49",
+    "stroke_file": "02_HANZI_STROKE/cht/7b.hanzi"
+  },
+  {
+    "character": "看",
+    "unicode": "U+770B",
+    "stroke_file": "02_HANZI_STROKE/cht/77.hanzi"
+  },
+  {
+    "character": "什",
+    "unicode": "U+4EC0",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "麼",
+    "unicode": "U+9EBC",
+    "stroke_file": "02_HANZI_STROKE/cht/9e.hanzi"
+  },
+  {
+    "character": "朋",
+    "unicode": "U+670B",
+    "stroke_file": "02_HANZI_STROKE/cht/67.hanzi"
+  },
+  {
+    "character": "友",
+    "unicode": "U+53CB",
+    "stroke_file": "02_HANZI_STROKE/cht/53.hanzi"
+  },
+  {
+    "character": "東",
+    "unicode": "U+6771",
+    "stroke_file": "02_HANZI_STROKE/cht/67.hanzi"
+  },
+  {
+    "character": "西",
+    "unicode": "U+897F",
+    "stroke_file": "02_HANZI_STROKE/cht/89.hanzi"
+  },
+  {
+    "character": "吧",
+    "unicode": "U+5427",
+    "stroke_file": "02_HANZI_STROKE/cht/54.hanzi"
+  },
+  {
+    "character": "呢",
+    "unicode": "U+5462",
+    "stroke_file": "02_HANZI_STROKE/cht/54.hanzi"
+  },
+  {
+    "character": "嗎",
+    "unicode": "U+55CE",
+    "stroke_file": "02_HANZI_STROKE/cht/55.hanzi"
+  },
+  {
+    "character": "找",
+    "unicode": "U+627E",
+    "stroke_file": "02_HANZI_STROKE/cht/62.hanzi"
+  },
+  {
+    "character": "做",
+    "unicode": "U+505A",
+    "stroke_file": "02_HANZI_STROKE/cht/50.hanzi"
+  },
+  {
+    "character": "見",
+    "unicode": "U+898B",
+    "stroke_file": "02_HANZI_STROKE/cht/89.hanzi"
+  },
+  {
+    "character": "怎",
+    "unicode": "U+600E",
+    "stroke_file": "02_HANZI_STROKE/cht/60.hanzi"
+  },
+  {
+    "character": "樣",
+    "unicode": "U+6A23",
+    "stroke_file": "02_HANZI_STROKE/cht/6a.hanzi"
+  },
+  {
+    "character": "叫",
+    "unicode": "U+53EB",
+    "stroke_file": "02_HANZI_STROKE/cht/53.hanzi"
+  },
+  {
+    "character": "謝",
+    "unicode": "U+8B1D",
+    "stroke_file": "02_HANZI_STROKE/cht/8b.hanzi"
+  },
+  {
+    "character": "對",
+    "unicode": "U+5C0D",
+    "stroke_file": "02_HANZI_STROKE/cht/5c.hanzi"
+  },
+  {
+    "character": "不",
+    "unicode": "U+4E0D",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "起",
+    "unicode": "U+8D77",
+    "stroke_file": "02_HANZI_STROKE/cht/8d.hanzi"
+  },
+  {
+    "character": "請",
+    "unicode": "U+8ACB",
+    "stroke_file": "02_HANZI_STROKE/cht/8a.hanzi"
+  },
+  {
+    "character": "這",
+    "unicode": "U+9019",
+    "stroke_file": "02_HANZI_STROKE/cht/90.hanzi"
+  },
+  {
+    "character": "那",
+    "unicode": "U+90A3",
+    "stroke_file": "02_HANZI_STROKE/cht/90.hanzi"
+  },
+  {
+    "character": "公",
+    "unicode": "U+516C",
+    "stroke_file": "02_HANZI_STROKE/cht/51.hanzi"
+  },
+  {
+    "character": "共",
+    "unicode": "U+5171",
+    "stroke_file": "02_HANZI_STROKE/cht/51.hanzi"
+  },
+  {
+    "character": "汽",
+    "unicode": "U+6C7D",
+    "stroke_file": "02_HANZI_STROKE/cht/6c.hanzi"
+  },
+  {
+    "character": "車",
+    "unicode": "U+8ECA",
+    "stroke_file": "02_HANZI_STROKE/cht/8e.hanzi"
+  },
+  {
+    "character": "子",
+    "unicode": "U+5B50",
+    "stroke_file": "02_HANZI_STROKE/cht/5b.hanzi"
+  },
+  {
+    "character": "到",
+    "unicode": "U+5230",
+    "stroke_file": "02_HANZI_STROKE/cht/52.hanzi"
+  },
+  {
+    "character": "去",
+    "unicode": "U+53BB",
+    "stroke_file": "02_HANZI_STROKE/cht/53.hanzi"
+  },
+  {
+    "character": "回",
+    "unicode": "U+56DE",
+    "stroke_file": "02_HANZI_STROKE/cht/56.hanzi"
+  },
+  {
+    "character": "坐",
+    "unicode": "U+5750",
+    "stroke_file": "02_HANZI_STROKE/cht/57.hanzi"
+  },
+  {
+    "character": "開",
+    "unicode": "U+958B",
+    "stroke_file": "02_HANZI_STROKE/cht/95.hanzi"
+  },
+  {
+    "character": "錢",
+    "unicode": "U+9322",
+    "stroke_file": "02_HANZI_STROKE/cht/93.hanzi"
+  },
+  {
+    "character": "多",
+    "unicode": "U+591A",
+    "stroke_file": "02_HANZI_STROKE/cht/59.hanzi"
+  },
+  {
+    "character": "少",
+    "unicode": "U+5C11",
+    "stroke_file": "02_HANZI_STROKE/cht/5c.hanzi"
+  },
+  {
+    "character": "給",
+    "unicode": "U+7D66",
+    "stroke_file": "02_HANZI_STROKE/cht/7d.hanzi"
+  },
+  {
+    "character": "貴",
+    "unicode": "U+8CB4",
+    "stroke_file": "02_HANZI_STROKE/cht/8c.hanzi"
+  },
+  {
+    "character": "便",
+    "unicode": "U+4FBF",
+    "stroke_file": "02_HANZI_STROKE/cht/4f.hanzi"
+  },
+  {
+    "character": "宜",
+    "unicode": "U+5B9C",
+    "stroke_file": "02_HANZI_STROKE/cht/5b.hanzi"
+  },
+  {
+    "character": "小",
+    "unicode": "U+5C0F",
+    "stroke_file": "02_HANZI_STROKE/cht/5c.hanzi"
+  },
+  {
+    "character": "難",
+    "unicode": "U+96E3",
+    "stroke_file": "02_HANZI_STROKE/cht/96.hanzi"
+  },
+  {
+    "character": "容",
+    "unicode": "U+5BB9",
+    "stroke_file": "02_HANZI_STROKE/cht/5b.hanzi"
+  },
+  {
+    "character": "易",
+    "unicode": "U+6613",
+    "stroke_file": "02_HANZI_STROKE/cht/66.hanzi"
+  },
+  {
+    "character": "有",
+    "unicode": "U+6709",
+    "stroke_file": "02_HANZI_STROKE/cht/67.hanzi"
+  },
+  {
+    "character": "想",
+    "unicode": "U+60F3",
+    "stroke_file": "02_HANZI_STROKE/cht/60.hanzi"
+  },
+  {
+    "character": "幾",
+    "unicode": "U+5E7E",
+    "stroke_file": "02_HANZI_STROKE/cht/5e.hanzi"
+  },
+  {
+    "character": "塊",
+    "unicode": "U+584A",
+    "stroke_file": "02_HANZI_STROKE/cht/58.hanzi"
+  },
+  {
+    "character": "飯",
+    "unicode": "U+98EF",
+    "stroke_file": "02_HANZI_STROKE/cht/98.hanzi"
+  },
+  {
+    "character": "吃",
+    "unicode": "U+5403",
+    "stroke_file": "02_HANZI_STROKE/cht/54.hanzi"
+  },
+  {
+    "character": "也",
+    "unicode": "U+4E5F",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "沒",
+    "unicode": "U+6C92",
+    "stroke_file": "02_HANZI_STROKE/cht/6c.hanzi"
+  },
+  {
+    "character": "都",
+    "unicode": "U+90FD",
+    "stroke_file": "02_HANZI_STROKE/cht/90.hanzi"
+  },
+  {
+    "character": "只",
+    "unicode": "U+53EA",
+    "stroke_file": "02_HANZI_STROKE/cht/53.hanzi"
+  },
+  {
+    "character": "還",
+    "unicode": "U+9084",
+    "stroke_file": "02_HANZI_STROKE/cht/90.hanzi"
+  },
+  {
+    "character": "了",
+    "unicode": "U+4E86",
+    "stroke_file": "02_HANZI_STROKE/cht/4e.hanzi"
+  },
+  {
+    "character": "過",
+    "unicode": "U+904E",
+    "stroke_file": "02_HANZI_STROKE/cht/90.hanzi"
+  }
+]
