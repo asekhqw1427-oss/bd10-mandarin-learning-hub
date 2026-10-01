@@ -1,3 +1,7 @@
+import { pageFromPath } from "../src/utils/appRouting.js";
+
+// Injected from Vite's current client build; uses the same hashed assets as /.
+const SPA_SHELL = "__BD10_SPA_SHELL__";
 const ADMIN_EMAIL = "admin@example.com";
 
 const json = (body, status = 200) => Response.json(body, { status, headers: { "Cache-Control": "no-store" } });
@@ -55,14 +59,18 @@ async function saveLesson(request, env, id) {
   }
   const updatedAt = new Date().toISOString();
   const lesson = { ...body, id, updatedAt, storageBackend: "sites" };
-  await env.DB.prepare("INSERT INTO lesson_materials (id, status, payload, updated_at) VALUES (?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET status = excluded.status, payload = excluded.payload, updated_at = excluded.updated_at")
+  // A late conversion/edit must never resurrect a deleted lesson.
+  const result = await env.DB.prepare("INSERT INTO lesson_materials (id, status, payload, updated_at) VALUES (?, ?, ?, ?) ON CONFLICT(id) DO UPDATE SET status = excluded.status, payload = excluded.payload, updated_at = excluded.updated_at WHERE lesson_materials.status <> 'deleted'")
     .bind(id, lesson.status || "draft", JSON.stringify(lesson), updatedAt).run();
+  if (!result.meta.changes) return json({ error: "This lesson was deleted. Refresh the lesson library." }, 410);
   return json({ lesson });
 }
 
 async function uploadAsset(request, env, id, url) {
   const auth = await requireAdmin(request, env);
   if (auth.error) return auth.error;
+  const existing = await env.DB.prepare("SELECT status FROM lesson_materials WHERE id = ?").bind(id).first();
+  if (existing?.status === "deleted") return json({ error: "This lesson was deleted. Slide conversion was stopped." }, 410);
   const kind = url.searchParams.get("kind") === "source" ? "source" : "slides";
   const order = Math.max(1, Number(url.searchParams.get("order") || 1));
   const form = await request.formData();
@@ -115,7 +123,16 @@ async function deleteLesson(request, env, id) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (!url.pathname.startsWith("/api/")) return new Response(null, { status: 404 });
+    if (!url.pathname.startsWith("/api/")) {
+      const pathname = url.pathname.replace(/\/+$/, "") || "/";
+      const isAppRoute = ["/", "/login", "/admin"].includes(pathname) || pageFromPath(pathname);
+      if (isAppRoute && ["GET", "HEAD"].includes(request.method)) {
+        return new Response(request.method === "HEAD" ? null : SPA_SHELL, {
+          headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" },
+        });
+      }
+      return new Response(null, { status: 404 });
+    }
     try {
       if (url.pathname === "/api/materials" && request.method === "GET") return listLessons(env, false);
       if (url.pathname === "/api/admin/materials" && request.method === "GET") {
