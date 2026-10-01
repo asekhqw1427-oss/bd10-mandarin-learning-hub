@@ -1,0 +1,32 @@
+name: Expand sanitized source snapshot
+on:
+  push:
+    paths:
+      - ".github/workflows/bootstrap.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Expand source files and remove temporary archive
+        run: |
+          python3 - <<'PYCODE'
+          import pathlib, zipfile
+          root = pathlib.Path.cwd().resolve()
+          with zipfile.ZipFile("bd10-source.zip") as archive:
+              for entry in archive.infolist():
+                  target = (root / entry.filename).resolve()
+                  if not target.is_relative_to(root) or entry.filename.startswith(".git/"):
+                      raise ValueError("Unsafe archive path")
+              archive.extractall(root)
+          pathlib.Path("bd10-source.zip").unlink()
+          pathlib.Path(".github/workflows/bootstrap.yml").unlink()
+          PYCODE
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          git commit -m "Import sanitized BD10 project source"
+          git push
