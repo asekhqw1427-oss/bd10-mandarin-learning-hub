@@ -6,11 +6,11 @@ create policy "admin manages lessons"
   on public.lesson_materials for all
   to authenticated
   using (
-    lower(coalesce(auth.jwt() ->> 'email', '')) = 'asekh.qw1427@gmail.com'
+    lower(coalesce(auth.jwt() ->> 'email', '')) = 'admin@example.com'
     or auth.jwt() -> 'app_metadata' ->> 'role' = 'admin'
   )
   with check (
-    lower(coalesce(auth.jwt() ->> 'email', '')) = 'asekh.qw1427@gmail.com'
+    lower(coalesce(auth.jwt() ->> 'email', '')) = 'admin@example.com'
     or auth.jwt() -> 'app_metadata' ->> 'role' = 'admin'
   );
 
@@ -21,7 +21,7 @@ create policy "admin uploads lesson files"
   with check (
     bucket_id = 'lesson-materials'
     and (
-      lower(coalesce(auth.jwt() ->> 'email', '')) = 'asekh.qw1427@gmail.com'
+      lower(coalesce(auth.jwt() ->> 'email', '')) = 'admin@example.com'
       or auth.jwt() -> 'app_metadata' ->> 'role' = 'admin'
     )
   );
@@ -33,14 +33,14 @@ create policy "admin updates lesson files"
   using (
     bucket_id = 'lesson-materials'
     and (
-      lower(coalesce(auth.jwt() ->> 'email', '')) = 'asekh.qw1427@gmail.com'
+      lower(coalesce(auth.jwt() ->> 'email', '')) = 'admin@example.com'
       or auth.jwt() -> 'app_metadata' ->> 'role' = 'admin'
     )
   )
   with check (
     bucket_id = 'lesson-materials'
     and (
-      lower(coalesce(auth.jwt() ->> 'email', '')) = 'asekh.qw1427@gmail.com'
+      lower(coalesce(auth.jwt() ->> 'email', '')) = 'admin@example.com'
       or auth.jwt() -> 'app_metadata' ->> 'role' = 'admin'
     )
   );
@@ -52,7 +52,7 @@ create policy "admin deletes lesson files"
   using (
     bucket_id = 'lesson-materials'
     and (
-      lower(coalesce(auth.jwt() ->> 'email', '')) = 'asekh.qw1427@gmail.com'
+      lower(coalesce(auth.jwt() ->> 'email', '')) = 'admin@example.com'
       or auth.jwt() -> 'app_metadata' ->> 'role' = 'admin'
     )
   );
