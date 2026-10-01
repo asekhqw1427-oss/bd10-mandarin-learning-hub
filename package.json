@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prepare-spa-shell.mjs",
     "preview": "vite preview",
     "db:generate": "drizzle-kit generate"
   },
