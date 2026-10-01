@@ -254,7 +254,18 @@ function App() {
   useEffect(() => {
     if (!supabase) return undefined;
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === "SIGNED_OUT" && sessionStorage.getItem("bd10-session-role") === "admin") {
+        sessionStorage.removeItem("bd10-session-role");
+        setSessionRole("");
+        setRestoringAdmin(false);
+        navigateTo("/login", { replace: true });
+        return;
+      }
       if ((event !== "SIGNED_IN" && event !== "INITIAL_SESSION") || !isAdminUser(session?.user)) return;
+      // Supabase also emits SIGNED_IN when a tab becomes visible again.
+      // Re-entering restoration without a role change would never rerun the
+      // verification effect below, leaving an already verified admin stuck.
+      if (sessionStorage.getItem("bd10-session-role") === "admin") return;
       sessionStorage.setItem("bd10-session-role", "admin");
       sessionStorage.removeItem("bd10-learner-user-id");
       setLessonProgressAccount(null);
@@ -268,13 +279,21 @@ function App() {
 
   useEffect(() => {
     if (sessionRole !== "admin") return;
+    setRestoringAdmin(true);
     let active = true;
+    let verificationTimeout;
     const restoreAdmin = async () => {
       try {
-        const { data, error } = await supabase.auth.getUser();
+        const { data, error } = await Promise.race([
+          supabase.auth.getUser(),
+          new Promise((_, reject) => {
+            verificationTimeout = window.setTimeout(() => reject(new Error("Admin session verification timed out")), 12_000);
+          }),
+        ]);
         if (!active) return;
         if (error || !isAdminUser(data?.user)) {
-          await supabase.auth.signOut();
+          // Do not block leaving the loading screen on a slow sign-out request.
+          void supabase.auth.signOut().catch(() => {});
           sessionStorage.removeItem("bd10-session-role");
           setSessionRole("");
           navigateTo("/login", { replace: true });
@@ -284,14 +303,19 @@ function App() {
           sessionStorage.removeItem("bd10-session-role");
           setSessionRole("");
           navigateTo("/login", { replace: true });
+          notify("Unable to verify your admin session. Please sign in again.", "error");
         }
       } finally {
+        window.clearTimeout(verificationTimeout);
         if (active) setRestoringAdmin(false);
       }
     };
     if (isSupabaseConfigured) restoreAdmin();
     else setRestoringAdmin(false);
-    return () => { active = false; };
+    return () => {
+      active = false;
+      window.clearTimeout(verificationTimeout);
+    };
   }, [sessionRole]);
 
   useEffect(() => {
@@ -471,7 +495,6 @@ function App() {
             notify("Admin login successful. Welcome to the content console!", "success");
             sessionStorage.setItem("bd10-session-role", "admin");
             setSessionRole("admin");
-            setRestoringAdmin(true);
             openRoute("/admin", { replace: true });
           } else {
             if (!isSupabaseConfigured) {
@@ -501,7 +524,6 @@ function App() {
               sessionStorage.removeItem("bd10-learner-user-id");
             sessionStorage.setItem("bd10-session-role", "admin");
               setSessionRole("admin");
-              setRestoringAdmin(true);
               notify("Admin login successful. Welcome to the content console!", "success");
               openRoute("/admin", { replace: true });
               return;
