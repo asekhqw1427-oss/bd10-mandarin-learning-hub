@@ -1,0 +1,6 @@
+**
+!Dockerfile
+!services/
+!services/slide-converter/
+!services/slide-converter/requirements.txt
+!services/slide-converter/server.py

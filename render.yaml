@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: bd10-slide-converter
+    runtime: docker
+    plan: free
+    region: singapore
+    rootDir: services/slide-converter
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: "off"
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: PYTHONDONTWRITEBYTECODE
+        value: "1"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: SLIDE_CONVERTER_TOKEN
+        generateValue: true
