@@ -1,0 +1,3 @@
+pptxtoimages==0.1.14
+pdf2image==1.17.0
+Pillow==12.0.0
