@@ -76,7 +76,7 @@ class BD10Converter(PPTXToImageConverter):
         subprocess.run([os.environ.get('SOFFICE', 'soffice'), '--headless', '--nologo',
             '--nodefault', '--norestore', '-env:UserInstallation=' + profile.as_uri(),
             '--convert-to', 'pdf:impress_pdf_Export', '--outdir', self.temp_dir, self.pptx_path],
-            check=True, timeout=self.remaining(90), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            check=True, timeout=self.remaining(240 if pathlib.Path(self.pptx_path).stat().st_size > 32 * 1024 * 1024 else 90), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         pdf = pathlib.Path(self.temp_dir) / 'source.pdf'
         with pdf.open('rb') as file:
             prefix = file.read(5)
@@ -102,7 +102,7 @@ class BD10Converter(PPTXToImageConverter):
             if (order - 1) % 8 == 0:
                 page_paths = convert_from_path(pdf_path, dpi=200, size=1920, first_page=order,
                     last_page=min(order + 7, count), thread_count=1, strict=True,
-                    output_folder=str(raster), paths_only=True, fmt='ppm', timeout=self.remaining(90))
+                    output_folder=str(raster), paths_only=True, fmt='ppm', timeout=self.remaining(240 if pathlib.Path(self.pptx_path).stat().st_size > 32 * 1024 * 1024 else 90))
                 if len(page_paths) != min(8, count - order + 1):
                     raise ValueError('Missing slide image')
             page_path = pathlib.Path(page_paths[(order - 1) % 8])
@@ -126,18 +126,28 @@ class BD10Converter(PPTXToImageConverter):
         return output
 
 
+def file_sha256(path):
+    digest = hashlib.sha256()
+    with pathlib.Path(path).open('rb') as file:
+        for chunk in iter(lambda: file.read(1024 * 1024), b''):
+            digest.update(chunk)
+    return digest.hexdigest()
+
 def convert(data, images=False, timeout_seconds=110, on_progress=None):
     with tempfile.TemporaryDirectory(prefix='bd10-slides-') as work:
         root = pathlib.Path(work)
         source = root / 'source.pptx'
-        source.write_bytes(data)
+        if isinstance(data, pathlib.Path):
+            shutil.copyfile(data, source)
+        else:
+            source.write_bytes(data)
         converter = BD10Converter(source, root, validate_source(source), timeout_seconds, on_progress)
         if not images:
             converter._convert_pptx_to_pdf()  # Preserve the existing PDF endpoint contract.
             return (root / 'lesson.pdf').read_bytes()
         output = converter.convert()  # Real upstream pptxtoimages entry point.
         manifest = dict(version=1, renderer='pptxtoimages@0.1.14',
-                        sourceSha256=hashlib.sha256(data).hexdigest(),
+                        sourceSha256=file_sha256(source),
                         slideCount=len(output), slides=converter.manifest_slides)
         bundle = io.BytesIO()
         with zipfile.ZipFile(bundle, 'w', compression=zipfile.ZIP_STORED) as archive:
@@ -170,6 +180,8 @@ def run_job(job, data):
             job.update(status='failed', stage='failed', finishedAt=time.monotonic())
         print(json.dumps({'event': 'conversion-failed', 'jobId': job['id'], 'errorType': type(cause).__name__}), flush=True)
     finally:
+        if isinstance(data, pathlib.Path):
+            data.unlink(missing_ok=True)
         LOCK.release()
 
 class Handler(BaseHTTPRequestHandler):
@@ -215,17 +227,23 @@ class Handler(BaseHTTPRequestHandler):
             size = int(self.headers.get('Content-Length', '0'))
         except ValueError:
             self.send_error(400); return
-        if not 4 <= size <= (BUNDLE_LIMIT if self.path == '/jobs' else LIMIT):
+        if not 4 <= size <= LIMIT:
             self.send_error(413); return
         if not LOCK.acquire(blocking=False):
             self.send_error(429); return
-        self.connection.settimeout(30)
+        self.connection.settimeout(300)
         try:
-            data = self.rfile.read(size)
-            if len(data) != size: raise ValueError('Incomplete request')
             if self.path == '/jobs':
-                with tempfile.NamedTemporaryFile(suffix='.pptx') as source:
-                    source.write(data); source.flush()
+                # Stream large originals to disk; don't retain 200 MB in RAM
+                # alongside LibreOffice and the rendered image package.
+                with tempfile.NamedTemporaryFile(suffix='.pptx', delete=False) as source:
+                    remaining = size
+                    while remaining:
+                        chunk = self.rfile.read(min(1024 * 1024, remaining))
+                        if not chunk: raise ValueError('Incomplete request')
+                        source.write(chunk); remaining -= len(chunk)
+                    source.flush()
+                    data = pathlib.Path(source.name)
                     count = validate_source(source.name)
                 with JOBS_LOCK:
                     # Keep a bounded result cache. The source remains in BD10 R2.
@@ -234,7 +252,7 @@ class Handler(BaseHTTPRequestHandler):
                     for key in completed[:-2]:
                         del JOBS[key]
                     job = dict(id=str(uuid.uuid4()), status='processing', stage='converting',
-                        slideCount=count, completedSlides=0, sourceSha256=hashlib.sha256(data).hexdigest())
+                        slideCount=count, completedSlides=0, sourceSha256=file_sha256(data))
                     JOBS[job['id']] = job
                 thread = threading.Thread(target=run_job, args=(job, data), daemon=True)
                 thread.start()
@@ -242,6 +260,8 @@ class Handler(BaseHTTPRequestHandler):
                 handed_off = True
                 self.output(json.dumps(job_summary(job)).encode(), 'application/json', 202)
                 return
+            data = self.rfile.read(size)
+            if len(data) != size: raise ValueError('Incomplete request')
             images = IMAGE_BUNDLE_TYPE in self.headers.get('Accept', '')
             result = convert(data, images=images)
             self.send_response(200)
@@ -253,6 +273,10 @@ class Handler(BaseHTTPRequestHandler):
             self.send_error(422, 'Presentation conversion failed')
         finally:
             if not locals().get('handed_off', False):
+                if isinstance(locals().get('data'), pathlib.Path):
+                    data.unlink(missing_ok=True)
+                elif 'source' in locals():
+                    pathlib.Path(source.name).unlink(missing_ok=True)
                 LOCK.release()
 
 if __name__ == '__main__':
