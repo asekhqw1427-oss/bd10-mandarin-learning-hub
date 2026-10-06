@@ -1,64 +1,64 @@
 # BD10 Mandarin Learning Hub
 
-Panduan lengkap menjalankan, mensimulasikan, dan mengedit BD10. Dibangun dengan React, Vite, Tailwind CSS, Lucide, Cloudflare Worker + D1/R2, serta Supabase untuk autentikasi dan progres belajar. Konten menggunakan **Traditional Chinese + Pinyin + English**.
+A complete guide to running, simulating, and editing BD10. Built with React, Vite, Tailwind CSS, Lucide, Cloudflare Worker + D1/R2, and Supabase for authentication and learning progress. Learning content uses **Traditional Chinese + Pinyin + English**.
 
 **Web demo:** https://bd10-engineer-learning-demo-qw1427.qw1427.chatgpt.site
 
-## Daftar isi
+## Table of contents
 
-1. [Status source dan web live](#1-status-source-dan-web-live)
-2. [Persiapan komputer](#2-persiapan-komputer)
-3. [Clone dan instalasi](#3-clone-dan-instalasi)
-4. [Konfigurasi frontend dan backend lokal](#4-konfigurasi-frontend-dan-backend-lokal)
-5. [Menjalankan web](#5-menjalankan-web)
-6. [Supabase dan akun pengujian](#6-supabase-dan-akun-pengujian)
-7. [Simulasi pelajar dan admin](#7-simulasi-pelajar-dan-admin)
-8. [Converter PowerPoint](#8-converter-powerpoint)
-9. [Cara mengedit kode](#9-cara-mengedit-kode)
-10. [Build dan publikasi](#10-build-dan-publikasi)
-11. [Pemecahan masalah](#11-pemecahan-masalah)
-12. [Kontribusi dan perlindungan data](#12-kontribusi-dan-perlindungan-data)
+1. [Source and live website status](#1-source-and-live-website-status)
+2. [Prerequisites](#2-prerequisites)
+3. [Clone and install](#3-clone-and-install)
+4. [Local frontend and backend configuration](#4-local-frontend-and-backend-configuration)
+5. [Run the website](#5-run-the-website)
+6. [Supabase and test accounts](#6-supabase-and-test-accounts)
+7. [Student and admin walkthroughs](#7-student-and-admin-walkthroughs)
+8. [PowerPoint converter](#8-powerpoint-converter)
+9. [Edit the code](#9-edit-the-code)
+10. [Build and publish](#10-build-and-publish)
+11. [Troubleshooting](#11-troubleshooting)
+12. [Contributing and data protection](#12-contributing-and-data-protection)
 
-## 1. Status source dan web live
+## 1. Source and live website status
 
-**Baca ini sebelum mencoba clone.** Repository ini belum merupakan salinan identik dari seluruh source web live.
+**Read this before cloning.** This repository is not yet an identical copy of the entire live website source.
 
-| Bagian | Status dokumentasi 6 Oktober 2026 |
+| Component | Documented status as of October 6, 2026 |
 | --- | --- |
-| Frontend dan Worker di GitHub | Snapshot Site versi 72, source `dd4930047c29ead1bfb349bf4d20fa174d9c394f`; mencakup routing, pemulihan sesi admin, bahasa admin, dan Student Record |
-| Converter GitHub | Diperbarui pada commit `8e2d6f9b958b69abf2c16f7ba9d2b1137c119b05`; endpoint async menerima PPTX hingga 200 MiB |
-| Web live ChatGPT | Source yang lebih baru, termasuk upload multipart dan alur saved images → Preview → Approve → Publish |
-| Database, akun, secret, materi yang diupload | Tidak ikut ter-clone; harus dikonfigurasi terpisah |
+| GitHub frontend and Worker | Site version 72 snapshot, source `dd4930047c29ead1bfb349bf4d20fa174d9c394f`; includes routing, admin session restoration, admin language selection, and Student Record |
+| GitHub converter | Updated in commit `8e2d6f9b958b69abf2c16f7ba9d2b1137c119b05`; the async endpoint accepts PPTX files up to 200 MiB |
+| Live ChatGPT website | Newer source, including multipart uploads and the saved images → Preview → Approve → Publish workflow |
+| Database, accounts, secrets, uploaded materials | Not included when cloning; must be configured separately |
 
-Menjalankan repository ini **tidak otomatis menghadirkan seluruh perubahan terbaru web live**. Secara khusus, frontend/Worker snapshot masih memakai converter browser lama (`src/utils/pptxSlideConverter.js`). Menjalankan service Python saja tidak menghubungkan frontend lama ke service tersebut. Dukungan upload multipart 200 MB dan alur preview/approval terbaru memerlukan source frontend/Worker terbaru; jangan menganggap keduanya sudah tersedia hanya karena `server.py` terbaru ada di repository.
+Running this repository **does not automatically include every recent change on the live website**. In particular, the frontend/Worker snapshot still uses the older browser converter (`src/utils/pptxSlideConverter.js`). Running the Python service alone does not connect the older frontend to that service. Support for 200 MB multipart uploads and the latest preview/approval workflow requires the latest frontend/Worker source; do not assume these features are available simply because the updated `server.py` is in the repository.
 
-Panduan berikut memisahkan instruksi yang berlaku untuk **checkout GitHub sekarang** dari alur pada **web live**. Tidak ada perubahan aplikasi atau dataset yang dilakukan oleh penambahan dokumentasi ini.
+This guide distinguishes instructions for the **current GitHub checkout** from the workflow on the **live website**. Adding this documentation does not change the application or its datasets.
 
-### Komponen sistem
+### System components
 
-| Komponen | Tugas |
+| Component | Responsibility |
 | --- | --- |
-| `src/` | Antarmuka React, routing, Word List, lesson viewer, dashboard admin |
-| `worker/index.js` | API `/api/*`, verifikasi admin, penyimpanan materi |
-| Cloudflare D1 (`DB`) | Metadata lesson: status, payload, waktu pembaruan |
-| Cloudflare R2 (`BUCKET`) | File sumber, gambar slide, thumbnail |
-| Supabase | Login, identitas/role, progres dan learning time; sumber lesson legacy |
-| `services/slide-converter/` | Service Python: PPTX → LibreOffice PDF → gambar slide/thumbnail |
+| `src/` | React interface, routing, Word List, lesson viewer, admin dashboard |
+| `worker/index.js` | `/api/*` API, admin verification, material storage |
+| Cloudflare D1 (`DB`) | Lesson metadata: status, payload, update timestamps |
+| Cloudflare R2 (`BUCKET`) | Source files, slide images, thumbnails |
+| Supabase | Login, identity/roles, progress and learning time; legacy lesson source |
+| `services/slide-converter/` | Python service: PPTX → LibreOffice PDF → slide images/thumbnails |
 
-Frontend dan API Worker dijalankan bersama lewat Vite + Cloudflare plugin. Jangan membuat server Express tambahan untuk menjalankan snapshot ini. D1 lokal dan R2 lokal tidak berisi materi produksi.
+The frontend and Worker API run together through Vite + the Cloudflare plugin. Do not create an additional Express server to run this snapshot. Local D1 and R2 do not contain production materials.
 
-## 2. Persiapan komputer
+## 2. Prerequisites
 
-Instal:
+Install:
 
-- **Git** untuk clone dan branch.
-- **Node.js 22.12 atau lebih baru**; Node.js 24 juga dapat digunakan. npm disertakan bersama Node.
-- **Visual Studio Code** atau editor lain.
-- Browser modern, misalnya Chrome atau Edge.
-- Internet untuk instalasi dependency dan login Supabase. “Lokal” bukan berarti autentikasi bekerja offline.
-- **Docker** hanya jika ingin menjalankan converter Python lokal.
+- **Git** for cloning and branches.
+- **Node.js 22.12 or newer**; Node.js 24 also works. npm is included with Node.
+- **Visual Studio Code** or another editor.
+- A modern browser, such as Chrome or Edge.
+- Internet access for dependency installation and Supabase login. “Local” does not mean authentication works offline.
+- **Docker** only if you want to run the Python converter locally.
 
-Periksa di terminal:
+Check in your terminal:
 
 ```sh
 git --version
@@ -66,9 +66,9 @@ node --version
 npm --version
 ```
 
-Gunakan terminal di folder proyek. Pada Windows, PowerShell dapat digunakan. Apabila runtime Cloudflare tidak didukung lingkungan Windows Anda, gunakan WSL2/Linux dan jalankan semua perintah proyek di lingkungan yang sama.
+Use a terminal in the project folder. On Windows, PowerShell is supported. If the Cloudflare runtime is not supported in your Windows environment, use WSL2/Linux and run all project commands in that same environment.
 
-## 3. Clone dan instalasi
+## 3. Clone and install
 
 ```sh
 git clone https://github.com/asekhqw1427-oss/bd10-mandarin-learning-hub.git
@@ -76,19 +76,19 @@ cd bd10-mandarin-learning-hub
 npm ci
 ```
 
-`npm ci` memakai versi dari `package-lock.json`. Jangan langsung mengubah dependency ke versi terbaru untuk sekadar menjalankan demo.
+`npm ci` uses the versions in `package-lock.json`. Do not immediately upgrade dependencies just to run the demo.
 
-Buka folder di VS Code:
+Open the folder in VS Code:
 
 ```sh
 code .
 ```
 
-Alternatif: VS Code → **File → Open Folder** → pilih `bd10-mandarin-learning-hub`.
+Alternatively: VS Code → **File → Open Folder** → select `bd10-mandarin-learning-hub`.
 
-## 4. Konfigurasi frontend dan backend lokal
+## 4. Local frontend and backend configuration
 
-Gunakan **Supabase pengujian milik Anda**, bukan secret atau database produksi pemilik proyek.
+Use **your own test Supabase project**, rather than the project owner's production secrets or database.
 
 ### 4.1 Frontend: `.env.local`
 
@@ -104,7 +104,7 @@ Windows PowerShell:
 Copy-Item .env.example .env.local
 ```
 
-Isi `.env.local` dengan nilai dari proyek Supabase pengujian:
+Fill `.env.local` with values from your test Supabase project:
 
 ```dotenv
 VITE_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
@@ -113,11 +113,11 @@ VITE_ADMIN_EMAIL=admin@your-domain.example
 VITE_LEARNER_EMAIL_DOMAIN=bd10.local
 ```
 
-Variabel `VITE_*` masuk ke browser. `VITE_SUPABASE_ANON_KEY` adalah public/anon key yang digunakan client sekarang, **bukan** `service_role`. Public key tetap memerlukan aturan RLS yang benar.
+`VITE_*` variables are exposed to the browser. `VITE_SUPABASE_ANON_KEY` is the public/anon key used by the current client, **not** a `service_role` key. Public keys still require correct RLS policies.
 
 ### 4.2 Worker: `.dev.vars`
 
-Buat file `.dev.vars` di root proyek. Ini untuk konfigurasi server lokal:
+Create `.dev.vars` in the project root. This configures the local server:
 
 ```dotenv
 SUPABASE_URL=https://YOUR_PROJECT.supabase.co
@@ -125,223 +125,223 @@ SUPABASE_ANON_KEY=YOUR_PUBLIC_ANON_KEY
 ADMIN_EMAIL=admin@your-domain.example
 ```
 
-Worker di snapshot membaca `SUPABASE_URL` / `SUPABASE_ANON_KEY` / `ADMIN_EMAIL`, atau alternatif bernama `VITE_*`. Contoh ini memisahkan konfigurasi server dan browser secara jelas. URL/key harus menunjuk Supabase yang sama dengan frontend.
+The snapshot Worker reads `SUPABASE_URL` / `SUPABASE_ANON_KEY` / `ADMIN_EMAIL`, or corresponding `VITE_*` alternatives. This example keeps server and browser configuration clearly separate. The URL/key must point to the same Supabase project as the frontend.
 
-**Jangan** menambahkan converter token, service-role key, OpenAI key, password, atau access token sebagai `VITE_*`. Jangan commit `.env.local`, `.dev.vars`, ataupun file kredensial.
+**Do not** add converter tokens, service-role keys, OpenAI keys, passwords, or access tokens as `VITE_*` variables. Do not commit `.env.local`, `.dev.vars`, or credential files.
 
-Periksa file yang diabaikan Git sebelum commit:
+Check ignored files before committing:
 
 ```sh
 git check-ignore .env.local .dev.vars
 git status --short
 ```
 
-Jika file secret belum diabaikan, tambahkan namanya ke `.gitignore` sebelum melanjutkan. Setelah mengubah env, hentikan dev server dan jalankan kembali.
+If a secret file is not ignored, add its name to `.gitignore` before continuing. After changing environment variables, stop and restart the development server.
 
-### 4.3 Database D1 lokal
+### 4.3 Local D1 database
 
-Buat tabel metadata lesson pada **database lokal**:
+Create the lesson metadata tables in the **local database**:
 
 ```sh
 npx wrangler d1 migrations apply bd10-learning-hub --local
 ```
 
-Jawab konfirmasi migrasi jika diminta. Konfigurasi memakai binding `DB`, database `bd10-learning-hub`, dan migration `drizzle/0000_common_luckman.sql`.
+Confirm the migration if prompted. The configuration uses binding `DB`, database `bd10-learning-hub`, and migration `drizzle/0000_common_luckman.sql`.
 
-Verifikasi:
+Verify:
 
 ```sh
 npx wrangler d1 execute bd10-learning-hub --local --command="SELECT name FROM sqlite_master WHERE type='table';"
 ```
 
-Tabel `lesson_materials` harus muncul. `--local` penting: perintah ini tidak dimaksudkan untuk migrasi database produksi.
+The `lesson_materials` table should appear. `--local` matters: this command is not intended to migrate the production database.
 
-R2 lokal dibuat oleh runtime dev melalui binding `BUCKET`. File dan database lokal disimpan di state Wrangler, biasanya `.wrangler/state`. Jangan hapus state tersebut jika masih membutuhkan materi pengujian. Placeholder `database_id` dalam checkout bukan ID database produksi dan tidak perlu diganti hanya untuk simulasi lokal.
+Local R2 is created by the development runtime through binding `BUCKET`. Local files and databases are stored in Wrangler state, usually `.wrangler/state`. Do not delete this state if you still need your test materials. The checkout's placeholder `database_id` is not a production database ID and does not need replacing just for local simulation.
 
-## 5. Menjalankan web
+## 5. Run the website
 
-Dari root proyek:
+From the project root:
 
 ```sh
 npm run dev
 ```
 
-Buka alamat **Local** yang dicetak terminal, biasanya:
+Open the **Local** address printed in the terminal, usually:
 
 ```text
 http://localhost:5173
 ```
 
-Jika port 5173 dipakai aplikasi lain, Vite dapat memilih port lain. Gunakan alamat yang benar-benar dicetak terminal. Biarkan terminal tetap berjalan. Hentikan dengan `Ctrl+C`.
+If another application uses port 5173, Vite may choose another port. Use the actual address printed in your terminal. Keep the terminal running. Stop the server with `Ctrl+C`.
 
-### Pemeriksaan awal
+### Initial checks
 
-- Halaman login muncul.
-- Console browser tidak menunjukkan error import.
-- Akses `/api/materials` pada origin lokal yang sama memberi JSON, bukan HTML.
-- Database lokal baru boleh menghasilkan daftar lesson kosong; ini bukan bukti bahwa materi produksi hilang.
-- Tanpa konfigurasi Supabase, halaman login bisa tampil tetapi **login pelajar/admin tidak tersedia**. Tidak ada password universal `123` yang otomatis dibuat oleh clone.
+- The login page appears.
+- The browser console has no import errors.
+- Visiting `/api/materials` on the same local origin returns JSON, not HTML.
+- A new local database may return an empty lesson list; this does not mean production materials have disappeared.
+- Without Supabase configuration, the login page can appear, but **student/admin login is unavailable**. Cloning does not automatically create a universal `123` password.
 
-### Build dan preview
+### Build and preview
 
 ```sh
 npm run build
 npm run preview
 ```
 
-Gunakan URL preview yang dicetak terminal. `dist/client` berisi frontend, `dist/server` berisi build Worker. `scripts/prepare-spa-shell.mjs` menyiapkan fallback route dengan asset build yang sama.
+Use the preview URL printed in the terminal. `dist/client` contains the frontend and `dist/server` contains the Worker build. `scripts/prepare-spa-shell.mjs` prepares route fallback using the same built assets.
 
-Preview digunakan untuk pemeriksaan build lokal. Build berhasil bukan bukti login, R2, Supabase, converter, atau publikasi sudah bekerja end-to-end. Jangan membuka `index.html` dengan `file://`; API, routing, dan autentikasi membutuhkan server HTTP.
+Preview is for checking the local build. A successful build does not prove that login, R2, Supabase, conversion, or publishing works end to end. Do not open `index.html` through `file://`; the API, routing, and authentication require an HTTP server.
 
-## 6. Supabase dan akun pengujian
+## 6. Supabase and test accounts
 
-### 6.1 Persiapkan Supabase sendiri
+### 6.1 Prepare your own Supabase project
 
-1. Buat/pilih proyek Supabase pengujian.
-2. Ambil Project URL dan public/anon key, lalu isi kedua file env di atas.
-3. Buka SQL Editor di proyek pengujian.
-4. Baca script dan ganti fallback `admin@example.com` dengan email admin pengujian yang sama, jika Anda menggunakan jalur email owner.
-5. Jalankan urutan berikut:
+1. Create/select a test Supabase project.
+2. Obtain the Project URL and public/anon key, then complete both environment files above.
+3. Open SQL Editor in your test project.
+4. Read the scripts and replace the `admin@example.com` fallback with the same test admin email if you use the owner-email authorization path.
+5. Run the scripts in this order:
 
-| Urutan | File | Kegunaan |
+| Order | File | Purpose |
 | --- | --- | --- |
-| 1 | `supabase/schema.sql` | Tabel lesson legacy, bucket legacy, RLS |
-| 2 | `supabase/role_access.sql` | Aturan akses admin berbasis email/`app_metadata` |
-| 3 | `supabase/lesson_progress.sql` | Progres pelajar dan sesi learning time |
-| 4 | `supabase/admin_student_records.sql` | RPC Student Record untuk admin |
+| 1 | `supabase/schema.sql` | Legacy lesson tables, legacy bucket, RLS |
+| 2 | `supabase/role_access.sql` | Admin access rules based on email/`app_metadata` |
+| 3 | `supabase/lesson_progress.sql` | Student progress and learning-time sessions |
+| 4 | `supabase/admin_student_records.sql` | Admin Student Record RPC |
 
-Script `schema.sql` membuat **bucket legacy publik**. Jangan gunakan bucket tersebut untuk dokumen rahasia. Web terbaru menyimpan draft/gambar melalui jalur R2 yang dikendalikan Worker; itu berbeda dari bucket legacy snapshot.
+`schema.sql` creates a **public legacy bucket**. Do not use it for confidential documents. The latest website stores drafts/images through Worker-controlled R2, which differs from the snapshot's legacy bucket.
 
-Jika Data API proyek tidak memberi grant otomatis pada tabel baru, periksa grant bersama RLS. Jangan menonaktifkan RLS untuk memperbaiki permission error. Perhatikan juga bahwa `lesson_progress.lesson_id` merujuk `public.lesson_materials` di Supabase: lesson yang hanya ada di D1 tanpa pasangan row Supabase dapat gagal disimpan progres cloud-nya pada snapshot ini. Ini perlu ditelusuri sebagai integrasi, bukan “diperbaiki” dengan menghapus foreign key sembarangan.
+If your project's Data API does not automatically grant access to new tables, check grants along with RLS. Do not disable RLS to fix permission errors. Also note that `lesson_progress.lesson_id` references `public.lesson_materials` in Supabase: lessons that exist only in D1 without matching Supabase rows can fail to save cloud progress in this snapshot. Investigate this as an integration issue; do not arbitrarily remove the foreign key.
 
-### 6.2 Buat akun pelajar
+### 6.2 Create student accounts
 
-Di Supabase **Authentication → Users**, buat user pengujian dengan email dan password yang Anda tentukan, lalu pastikan email sudah terkonfirmasi.
+In Supabase **Authentication → Users**, create a test user with an email and password you choose, and ensure the email is confirmed.
 
-Contoh pemetaan ID — contoh ini **bukan akun yang otomatis tersedia**:
+Example ID mapping — these are **not automatically available accounts**:
 
-| Input login | Email yang dicari aplikasi |
+| Login input | Email looked up by the application |
 | --- | --- |
 | `DEMO01` | `employee-demo01@bd10.local` |
 | `123` | `employee-123@bd10.local` |
-| `dimas@example.com` | `dimas@example.com` secara langsung |
+| `dimas@example.com` | `dimas@example.com` directly |
 
-Aplikasi memakai `learnerEmailForLogin()` dalam `src/utils/supabaseClient.js`. Email lengkap dapat digunakan agar tidak salah pemetaan ID. Email `bd10.local` bukan inbox email nyata; untuk ID pengujian seperti itu, provision akun terkonfirmasi melalui jalur admin yang tepercaya. Untuk alur konfirmasi email biasa, gunakan alamat yang bisa menerima email.
+The application uses `learnerEmailForLogin()` in `src/utils/supabaseClient.js`. You can use a full email address to avoid ID-mapping mistakes. `bd10.local` addresses are not real email inboxes; provision confirmed test accounts through a trusted admin flow. For normal email confirmation, use an address that can receive email.
 
-Nama yang tampil berasal dari `user_metadata.display_name` atau `full_name`; `user_metadata` **bukan** sumber otorisasi admin.
+The display name comes from `user_metadata.display_name` or `full_name`; `user_metadata` is **not** an admin authorization source.
 
-### 6.3 Masuk sebagai admin
+### 6.3 Log in as an admin
 
 **Owner admin:**
 
-1. Buat user Supabase dengan email persis sama dengan `VITE_ADMIN_EMAIL` dan `ADMIN_EMAIL`.
-2. Gunakan password akun tersebut.
-3. Pada login BD10, isi ID `ADMIN` dan password owner admin.
-4. Setelah berhasil, aplikasi membuka `/admin`.
+1. Create a Supabase user whose email exactly matches `VITE_ADMIN_EMAIL` and `ADMIN_EMAIL`.
+2. Use that account's password.
+3. On the BD10 login page, enter ID `ADMIN` and the owner admin password.
+4. After successful login, the application opens `/admin`.
 
-**Admin tambahan:** user dapat masuk memakai email lengkap atau ID yang dipetakan di atas, tetapi harus memiliki `app_metadata.role = "admin"` yang dipasang melalui backend/Supabase Admin API tepercaya. Mengubah React, sessionStorage, atau `user_metadata.role` tidak memberi akses API admin.
+**Additional admins:** users can log in with their full email or an ID mapped as above, but must have `app_metadata.role = "admin"` set through a trusted backend/Supabase Admin API. Changing React, sessionStorage, or `user_metadata.role` does not grant admin API access.
 
-Jangan menyimpan service-role key atau skrip provisioning dengan secret di frontend. Jika ingin memakai fungsi 5 akun pelajar + 2 admin yang sudah ada, source-nya berada di `supabase/functions/provision-demo-accounts/index.ts`. Fungsi tersebut harus dideploy dan dipanggil oleh admin yang sudah terautentikasi; tidak berjalan otomatis setelah clone. Password dibuat saat provisioning, bukan ditulis dalam README. Pemanggilan ulang default tidak menerbitkan kembali password akun lama; `rotateExisting` mengubah password dan bukan langkah pengujian rutin.
+Do not put service-role keys or provisioning scripts containing secrets in the frontend. The existing five-student/two-admin provisioning function is at `supabase/functions/provision-demo-accounts/index.ts`. It must be deployed and called by an already authenticated admin; it does not run automatically after cloning. Passwords are generated during provisioning, not written in this README. By default, calling it again does not reissue existing account passwords; `rotateExisting` changes passwords and is not a routine test step.
 
-### 6.4 Link email dan redirect
+### 6.4 Email links and redirects
 
-Untuk simulasi, gunakan **login password** dahulu. Supabase Authentication → URL Configuration harus mengizinkan origin callback yang dipakai, termasuk port localhost aktual dan URL produksi yang diperlukan.
+Use **password login** first for simulation. Supabase Authentication → URL Configuration must allow the callback origin you use, including the actual localhost port and any required production URLs.
 
-Ada batasan source saat ini: `adminAuthRedirectUrl` di `src/utils/supabaseClient.js` menunjuk `/admin` pada domain ChatGPT secara hard-coded. Menambahkan localhost di Supabase saja tidak mengubah redirect yang dikirim aplikasi. Jika mengembangkan salinan milik sendiri dan membutuhkan magic link lokal, ubah referensi redirect itu pada branch pengujian Anda ke URL lokal yang sesuai dan allowlist di Supabase. Jangan mengubah redirect produksi tanpa review. Link akses mengandung token — jangan tempelkan di Issue atau README.
+The current source has a limitation: `adminAuthRedirectUrl` in `src/utils/supabaseClient.js` hard-codes `/admin` on the ChatGPT domain. Adding localhost in Supabase alone does not change the redirect sent by the application. If you develop your own copy and need a local magic link, change that redirect reference on your test branch to the appropriate local URL and allowlist it in Supabase. Do not change production redirects without review. Access links contain tokens — do not paste them into Issues or this README.
 
-## 7. Simulasi pelajar dan admin
+## 7. Student and admin walkthroughs
 
-Gunakan akun dan proyek pengujian. Jangan menghapus/mengganti lesson produksi untuk mencoba fitur.
+Use test accounts and a test project. Do not delete/replace production lessons to test features.
 
-### Pelajar
+### Student
 
-1. Login dengan akun pengujian.
-2. Buka Home lalu Lessons.
-3. Pilih satu lesson yang sudah dipublish.
-4. Periksa gambar slide, thumbnail, Previous/Next, fullscreen, dan timer.
-5. Keluar lalu buka lesson kembali untuk memeriksa pemulihan progres.
-6. Bandingkan learning time dan status di Home/Lessons.
-7. Periksa Vocabulary: search Hanzi/Pinyin/English, level CEFR, pemilihan kata, dan scrollbar internal.
+1. Log in with a test account.
+2. Open Home, then Lessons.
+3. Select a published lesson.
+4. Check slide images, thumbnails, Previous/Next, fullscreen, and the timer.
+5. Exit and reopen the lesson to check progress restoration.
+6. Compare learning time and status on Home/Lessons.
+7. Check Vocabulary: Hanzi/Pinyin/English search, CEFR levels, word selection, and the internal scrollbar.
 
-Lesson lokal tidak otomatis sama dengan lesson web live. Daftar kosong dapat berarti D1 lokal belum memiliki materi, bukan masalah filter.
+Local lessons do not automatically match live website lessons. An empty list may mean local D1 has no materials yet, rather than a filter problem.
 
-### Admin di checkout GitHub sekarang
+### Admin in the current GitHub checkout
 
-1. Login sebagai admin → `/admin`.
-2. Buat lesson pengujian dengan judul/deskripsi yang jelas.
-3. Untuk simulasi ringan dan menjaga format, gunakan **gambar slide asli yang sudah diekspor dari PowerPoint**, jika input gambar tersedia di editor.
-4. Simpan draft, periksa materi, lalu publish memakai fungsi editor snapshot.
-5. Buka jendela incognito/browser lain sebagai pelajar pada **origin lokal yang sama**.
-6. Periksa apakah lesson published muncul dan draft tidak muncul.
-7. Uji edit judul/deskripsi tanpa upload ulang dan periksa lagi dari akun pelajar.
+1. Log in as an admin → `/admin`.
+2. Create a test lesson with a clear title/description.
+3. For a lightweight simulation that preserves formatting, use **real slide images exported from PowerPoint**, if the editor provides an image input.
+4. Save the draft, review the material, then publish using the snapshot editor's functionality.
+5. Open an incognito window/another browser as a student on the **same local origin**.
+6. Confirm that published lessons appear and drafts do not.
+7. Test editing the title/description without uploading again, then check from the student account.
 
-Converter PPTX browser lama dalam snapshot dapat menghasilkan format berbeda dari PowerPoint. Jangan menganggap hasil itu setara dengan service LibreOffice terbaru.
+The snapshot's older browser PPTX converter can produce formatting that differs from PowerPoint. Do not assume its output matches the latest LibreOffice service.
 
-### Admin di web live terbaru
+### Admin on the latest live website
 
-Alur yang dituju dan dipakai source live:
+The intended workflow used by the live source is:
 
 **Upload PowerPoint → saved slide images → Preview → Approve → Publish**.
 
-- Gambar dan thumbnail disimpan terlebih dahulu.
-- Preview harus menggunakan gambar yang sudah tersimpan.
-- Admin memeriksa hasil dan menyetujui preview secara eksplisit.
-- Publish dilakukan setelah persetujuan; upload atau konversi tidak boleh otomatis menerbitkan lesson.
-- Jika konversi gagal, original dan draft harus tetap tersedia.
-- AI/WebGPU bukan syarat konversi maupun publikasi.
+- Images and thumbnails are saved first.
+- Preview must use the saved images.
+- The admin reviews the output and explicitly approves the preview.
+- Publishing happens after approval; uploading or converting must not automatically publish lessons.
+- If conversion fails, the original file and draft must remain available.
+- AI/WebGPU is not required for conversion or publishing.
 
-Frontend/Worker terbaru harus disinkronkan ke checkout sebelum menilai alur ini lewat clone. Dokumentasi tidak mengaktifkan fitur yang belum ada dalam kode snapshot.
+The latest frontend/Worker source must be synchronized into the checkout before testing this flow from a clone. Documentation does not activate features missing from the snapshot code.
 
-## 8. Converter PowerPoint
+## 8. PowerPoint converter
 
-### 8.1 Menjalankan service lokal dengan Docker
+### 8.1 Run the local service with Docker
 
-Dari root repository:
+From the repository root:
 
 ```sh
 docker build -t bd10-slide-converter services/slide-converter
 ```
 
-Buat file lokal `.converter.env` dan pastikan masuk `.gitignore`:
+Create a local `.converter.env` file and ensure it is in `.gitignore`:
 
 ```dotenv
 SLIDE_CONVERTER_TOKEN=YOUR_RANDOM_SERVER_ONLY_TOKEN
 ```
 
-Gunakan secret acak milik lingkungan pengujian; jangan memakai token produksi. Jalankan:
+Use a random secret for your test environment, not a production token. Run:
 
 ```sh
 docker run --rm --name bd10-slide-converter --env-file .converter.env -p 127.0.0.1:8080:8080 bd10-slide-converter
 ```
 
-Buka `http://127.0.0.1:8080/health`. Respons sehat:
+Open `http://127.0.0.1:8080/health`. A healthy response is:
 
 ```json
 {"status":"ok","service":"bd10-slide-converter"}
 ```
 
-Docker menjalankan LibreOffice, Poppler, Python, dan `pptxtoimages@0.1.14`; tidak membutuhkan PowerPoint dipasang di browser. Docker harus tetap berjalan selama konversi.
+Docker runs LibreOffice, Poppler, Python, and `pptxtoimages@0.1.14`; PowerPoint does not need to be installed in the browser. Keep Docker running during conversion.
 
-### 8.2 Kontrak service
+### 8.2 Service contract
 
-Semua endpoint selain `/health` membutuhkan bearer token **server-only**.
+All endpoints except `/health` require a **server-only** bearer token.
 
-| Endpoint | Fungsi |
+| Endpoint | Purpose |
 | --- | --- |
-| `POST /jobs` | Upload binary PPTX, menerima ID job dan jumlah slide/hash asli |
-| `GET /jobs/{id}` | Memeriksa status dan jumlah slide yang sudah dirender |
-| `GET /jobs/{id}/result` | Mengambil ZIP berisi PDF, gambar, thumbnail, manifest |
-| `POST /convert` | Endpoint sinkron legacy; untuk file besar gunakan async `/jobs` |
+| `POST /jobs` | Upload PPTX binary; returns a job ID and original slide count/hash |
+| `GET /jobs/{id}` | Check status and rendered slide count |
+| `GET /jobs/{id}/result` | Retrieve a ZIP containing PDF, images, thumbnails, and manifest |
+| `POST /convert` | Legacy synchronous endpoint; use async `/jobs` for large files |
 
-Endpoint `/jobs` menerima hingga **200 MiB**, maksimal 300 slide, macro-free PPTX. File sumber di-stream ke disk. **Paket hasil tetap maksimal 32 MiB**; dokumen dengan banyak gambar/slide berat dapat melewati batas output walaupun input kurang dari 200 MB. Urutan dan jumlah slide diverifikasi. Font yang tidak tersedia dapat disubstitusi; admin tetap harus review hasil visual.
+The `/jobs` endpoint accepts **200 MiB** maximum, up to 300 slides, and macro-free PPTX files. Source files are streamed to disk. **The result package is still limited to 32 MiB**; documents with many images/heavy slides can exceed the output limit even when the input is below 200 MB. Slide order and count are verified. Unavailable fonts may be substituted, so admins must still review the visual output.
 
-Job native bersifat sementara: restart service atau masa kedaluwarsa dapat menghilangkan job/result yang belum disimpan. Original yang telah disimpan di R2 merupakan sumber untuk retry.
+Native jobs are temporary: service restarts or expiration can remove jobs/results that have not been saved. Originals already saved in R2 are the source for retries.
 
-### 8.3 Menghubungkan source live yang sudah memiliki pipeline native
+### 8.3 Connect live source that already has the native pipeline
 
-**Bagian ini hanya berlaku jika checkout memiliki `worker/services/slideConversion.js` dan `worker/services/lessonVisuals.js` terbaru. Keduanya tidak tersedia dalam snapshot frontend/Worker GitHub yang didokumentasikan di atas.**
+**This section applies only if your checkout contains the latest `worker/services/slideConversion.js` and `worker/services/lessonVisuals.js`. Neither is available in the GitHub frontend/Worker snapshot documented above.**
 
-Konfigurasi `.dev.vars`/server runtime:
+Configure `.dev.vars`/the server runtime:
 
 ```dotenv
 SLIDE_CONVERTER_URL=http://127.0.0.1:8080/convert
@@ -350,67 +350,67 @@ SLIDE_CONVERTER_ASYNC=true
 SLIDE_CONVERTER_LARGE_UPLOADS=true
 ```
 
-Pada hosting produksi, URL harus memakai HTTPS service converter Anda. Set token yang sama pada Worker dan converter. Jangan menambahkan `VITE_SLIDE_CONVERTER_TOKEN`. Jalur upload >32 MB juga membutuhkan kode upload multipart terbaru; flag saja tidak menambah fungsi ke snapshot lama.
+For production hosting, use your converter service's HTTPS URL. Set the same token on the Worker and converter. Do not add `VITE_SLIDE_CONVERTER_TOKEN`. Uploads above 32 MB also require the latest multipart upload code; a flag alone does not add that feature to an older snapshot.
 
-Hosting ChatGPT menjalankan aplikasi/Worker, sedangkan LibreOffice berjalan di service converter terpisah. Commit GitHub tidak otomatis memperbarui web ChatGPT. Service Render yang sekarang digunakan menonaktifkan auto-deploy; perubahan converter membutuhkan deploy Render terpisah dan konfirmasi status Live.
+ChatGPT hosting runs the application/Worker, while LibreOffice runs in a separate converter service. GitHub commits do not automatically update the ChatGPT website. Auto-deploy is disabled on the Render service currently used; converter changes require a separate Render deployment and confirmation of Live status.
 
-Detail: [`services/slide-converter/server.py`](services/slide-converter/server.py), [`Dockerfile`](Dockerfile), [`render.yaml`](render.yaml). README converter lama mungkin masih menyebut batas input 32 MB; kontrak input terbaru berada dalam `server.py` commit yang disebut pada bagian 1.
+Details: [`services/slide-converter/server.py`](services/slide-converter/server.py), [`Dockerfile`](Dockerfile), [`render.yaml`](render.yaml). The older converter README may still mention a 32 MB input limit; the latest input contract is in `server.py` at the commit listed in section 1.
 
-## 9. Cara mengedit kode
+## 9. Edit the code
 
-### 9.1 Buat branch terlebih dahulu
+### 9.1 Create a branch first
 
 ```sh
 git switch -c docs-or-fix/my-change
 ```
 
-Jika Anda bukan pemilik repository, fork dahulu lalu clone fork. Hindari mengedit langsung `main` untuk eksperimen.
+If you do not own the repository, fork it first and clone your fork. Avoid experimenting directly on `main`.
 
-### 9.2 Pilih file sesuai bagian yang ingin diubah
+### 9.2 Choose files for the area you want to change
 
-| Bagian | File utama |
+| Area | Main files |
 | --- | --- |
-| Login, sesi, pemilihan dashboard | `src/main.jsx` |
-| Konfigurasi dan fungsi login | `src/utils/supabaseClient.js` |
-| Sidebar/header/komposisi dashboard | `src/Dashboard.jsx`, `src/dashboard.css` |
+| Login, sessions, dashboard selection | `src/main.jsx` |
+| Login configuration and functions | `src/utils/supabaseClient.js` |
+| Sidebar/header/dashboard composition | `src/Dashboard.jsx`, `src/dashboard.css` |
 | Home | `src/HomePage.jsx`, `src/home.css` |
-| Daftar Lessons | `src/LessonsPage.jsx`, `src/lessons.css` |
-| Lesson viewer, slide/timer | `src/LessonViewer.jsx`, `src/lesson-viewer.css` |
+| Lessons list | `src/LessonsPage.jsx`, `src/lessons.css` |
+| Lesson viewer, slides/timer | `src/LessonViewer.jsx`, `src/lesson-viewer.css` |
 | Admin | `src/AdminDashboard.jsx`, `src/admin.css`, `src/adminTranslations.js` |
 | Student Record | `src/AdminStudentRecords.jsx`, `supabase/admin_student_records.sql` |
-| Penyimpanan/load materi | `src/utils/adminLessonStore.js`, `worker/index.js` |
+| Material storage/loading | `src/utils/adminLessonStore.js`, `worker/index.js` |
 | Routing | `src/utils/appRouting.js` |
-| Progres dan learning time | `src/utils/lessonProgress.js`, `src/utils/learningTime.js` |
-| Vocabulary dan virtual scrolling | `src/VocabularyPage.jsx`, `src/vocabulary.css`, `src/vocabulary-ref.css` |
-| Dataset TOCFL per level | `src/data/tocfl/`, central export `src/data/tocfl/index.js` |
-| Stroke A0 | `src/A0StrokePanel.jsx`, `src/utils/hanziStrokeParser.js`, `src/data/a0Stroke.js` |
-| Branding/gambar | `public/` dan referensi asset di komponen |
-| API dan file materi | `worker/index.js`, binding `DB`/`BUCKET` |
-| Schema D1 | `db/schema.ts`, `drizzle/` |
+| Progress and learning time | `src/utils/lessonProgress.js`, `src/utils/learningTime.js` |
+| Vocabulary and virtual scrolling | `src/VocabularyPage.jsx`, `src/vocabulary.css`, `src/vocabulary-ref.css` |
+| TOCFL datasets by level | `src/data/tocfl/`, central export `src/data/tocfl/index.js` |
+| A0 strokes | `src/A0StrokePanel.jsx`, `src/utils/hanziStrokeParser.js`, `src/data/a0Stroke.js` |
+| Branding/images | `public/` and component asset references |
+| API and material files | `worker/index.js`, `DB`/`BUCKET` bindings |
+| D1 schema | `db/schema.ts`, `drizzle/` |
 | Converter server | `services/slide-converter/server.py` |
 
-Cek nama file dalam checkout sebelum mengedit; struktur source live yang lebih baru dapat menambah komponen. Cari teks di VS Code dengan **Ctrl+Shift+F** / **Cmd+Shift+F**.
+Check file names in your checkout before editing; newer live source may add components. Search text in VS Code using **Ctrl+Shift+F** / **Cmd+Shift+F**.
 
-### 9.3 Contoh perubahan sederhana
+### 9.3 Simple change examples
 
-1. Ingin mengganti teks heading Lessons? Cari teksnya di `src/LessonsPage.jsx`.
-2. Ingin menyesuaikan padding card Lessons? Cari class card di `src/lessons.css`.
-3. Simpan file; Vite biasanya memperbarui browser otomatis.
-4. Periksa desktop dan layar kecil melalui DevTools.
-5. Periksa console dan build sebelum commit.
+1. Want to change the Lessons heading? Find the text in `src/LessonsPage.jsx`.
+2. Want to adjust Lessons card padding? Find the card class in `src/lessons.css`.
+3. Save the file; Vite normally updates the browser automatically.
+4. Check desktop and smaller screens using DevTools.
+5. Check the console and build before committing.
 
-Untuk mengubah **materi lesson, judul, deskripsi, dan waktu belajar**, gunakan editor admin bila field sudah tersedia. Jangan mengubah source untuk setiap upload lesson. Source digunakan untuk perubahan perilaku/antarmuka aplikasi.
+To change **lesson materials, titles, descriptions, and learning time**, use the admin editor when those fields are available. Do not change source code for every lesson upload. Source edits are for application behavior/interface changes.
 
-### 9.4 Aturan dataset dan renderer
+### 9.4 Dataset and renderer rules
 
-- **A0 / TOCFL 1 finalized bersifat read-only.** Jangan mengubah ID, Hanzi, Pinyin, definisi, contoh, metadata, atau urutan `src/data/tocfl/a0.js`.
-- Jangan menjalankan generator dataset hanya untuk mengedit CSS atau memperbaiki UI.
-- Jangan menyalin ribuan vocabulary ke komponen React.
-- Pertahankan virtual scrolling, memoization, search index, dan filter level.
-- Stroke harus memakai geometri asli; jangan membalik array stroke untuk memperbaiki orientasi SVG.
-- Jangan mengubah halaman lain untuk perubahan kecil pada Lessons/Admin.
+- **Finalized A0 / TOCFL 1 is read-only.** Do not change IDs, Hanzi, Pinyin, definitions, examples, metadata, or order in `src/data/tocfl/a0.js`.
+- Do not run dataset generators just to edit CSS or fix the UI.
+- Do not copy thousands of vocabulary entries into React components.
+- Preserve virtual scrolling, memoization, the search index, and level filters.
+- Strokes must use original geometry; do not reverse stroke arrays to fix SVG orientation.
+- Do not change other pages for a small Lessons/Admin update.
 
-### 9.5 Simpan perubahan ke GitHub
+### 9.5 Save changes to GitHub
 
 ```sh
 git diff
@@ -421,72 +421,72 @@ git commit -m "Describe the specific change"
 git push -u origin docs-or-fix/my-change
 ```
 
-Ganti `path/to/file-you-changed` dengan file nyata yang diedit. Buka Pull Request dan tuliskan masalah, hasil perubahan, serta validasi. Hindari `git add .` tanpa memeriksa apakah ada secret/file materi pribadi.
+Replace `path/to/file-you-changed` with the actual edited file. Open a Pull Request describing the problem, resulting change, and validation. Avoid `git add .` without checking for secrets/private material files.
 
-## 10. Build dan publikasi
+## 10. Build and publish
 
-### GitHub, Render, dan web ChatGPT merupakan deployment berbeda
+### GitHub, Render, and the ChatGPT website have separate deployments
 
-| Tindakan | Hasil |
+| Action | Result |
 | --- | --- |
-| `git push` | Source tersimpan di GitHub |
-| `npm run build` | Build lokal dibuat; belum mengubah website live |
-| Deploy Render | Memperbarui service converter, bukan otomatis frontend ChatGPT |
-| Publish Sites pada proyek ChatGPT yang sama | Memperbarui website pada domain ChatGPT |
+| `git push` | Saves source to GitHub |
+| `npm run build` | Creates a local build; does not update the live website |
+| Deploy Render | Updates the converter service, not automatically the ChatGPT frontend |
+| Publish Sites in the same ChatGPT project | Updates the website on the ChatGPT domain |
 
-Untuk memperbarui domain ChatGPT yang ada, pemilik proyek harus memakai alur **Sites** dengan source terbaru, build yang benar, dan project ID yang sudah ada. Repository ini tidak menyediakan perintah `npm run deploy` untuk domain ChatGPT. Jangan membuat Site baru atau menimpa live memakai snapshot lama hanya untuk mempublish perubahan dokumentasi.
+To update the existing ChatGPT domain, the project owner must use the **Sites** workflow with the latest source, a correct build, and the existing project ID. This repository does not provide an `npm run deploy` command for the ChatGPT domain. Do not create a new Site or overwrite live source with an older snapshot just to publish documentation changes.
 
-Untuk hosting Cloudflare mandiri, gunakan akun dan D1/R2 milik Anda, konfigurasi ID resource nyata, migrasi ke database tujuan yang benar, lalu ikuti dokumentasi Cloudflare. Menjalankan `wrangler deploy` pada komputer tidak menerbitkan ke domain ChatGPT milik proyek ini. Jangan gunakan ID atau secret production pemilik tanpa otorisasi.
+For independent Cloudflare hosting, use your own account and D1/R2 resources, configure real resource IDs, migrate the correct target database, and follow Cloudflare documentation. Running `wrangler deploy` on your computer does not publish to this project's ChatGPT domain. Do not use the owner's production IDs or secrets without authorization.
 
-### Checklist sebelum rilis perubahan aplikasi
+### Checklist before releasing application changes
 
-- Build berhasil.
-- Login pelajar dan admin diuji memakai akun pengujian.
-- Route refresh `/lessons` dan `/admin` tidak 404.
-- Lesson draft tidak muncul pada pelajar.
-- Published lesson muncul dan gambar yang dibuka sama dengan preview admin.
-- Batas waktu pembelajaran dan syarat completion diuji.
-- Search/filter/virtual scrolling Vocabulary tidak berubah.
-- A0 dan level lain yang tidak menjadi scope tetap utuh.
-- Tidak ada secret, private lesson, password, token, atau data pelajar dalam commit.
+- Build succeeds.
+- Student and admin login are tested with test accounts.
+- Refreshing `/lessons` and `/admin` does not return 404.
+- Draft lessons are not visible to students.
+- Published lessons appear, and student slide images match the admin preview.
+- Learning-time limits and completion requirements are tested.
+- Vocabulary search/filter/virtual scrolling are unchanged.
+- A0 and any other out-of-scope levels remain intact.
+- No secrets, private lessons, passwords, tokens, or student data are committed.
 
-Snapshot GitHub belum menyediakan script `npm test`. Jika memakai source terbaru dengan folder `tests/`, jalankan pengujian yang tersedia untuk perubahan tersebut; jangan mengklaim tes source live sudah dijalankan pada clone snapshot.
+The GitHub snapshot does not yet provide an `npm test` script. If you use newer source with a `tests/` folder, run the available tests relevant to your changes; do not claim that live-source tests were run on the snapshot clone.
 
-## 11. Pemecahan masalah
+## 11. Troubleshooting
 
-| Gejala | Periksa / tindakan |
+| Symptom | Check / action |
 | --- | --- |
-| `npm`/`node` tidak dikenali | Instal Node, buka terminal baru, cek versi |
-| `npm ci` gagal | Cek versi Node, jaringan, dan kesesuaian lockfile; jangan hapus lockfile sebagai langkah pertama |
-| `no such table: lesson_materials` | Jalankan migrasi D1 dengan `--local`; pastikan config/state yang dipakai sama |
-| Login ditolak | URL/key frontend benar, akun ada di Supabase yang sama, email terkonfirmasi, password benar |
-| ID `123` tidak bisa masuk | Buat akun `employee-123@bd10.local`, atau masuk dengan email lengkap yang benar; clone tidak membuat akun ini |
-| Admin mendapat 401 | Sesi tidak ada/kedaluwarsa; login ulang dan periksa Worker mengarah ke Supabase yang sama |
-| Admin mendapat 403 | Role `app_metadata` atau owner email belum sesuai; role React bukan hak akses server |
-| `Admin verification is not configured` | Isi `.dev.vars` Worker; `.env.local` frontend saja belum cukup |
-| Magic link kembali ke domain produksi | Source mempunyai `adminAuthRedirectUrl` hard-coded; gunakan password untuk simulasi lokal atau sesuaikan redirect pada branch pengujian |
-| Lesson lokal kosong | D1/R2 lokal baru tidak memuat materi produksi; buat materi pengujian |
-| Perubahan env tidak terlihat | Restart dev server; frontend env dibaca saat dev/build |
-| Refresh route 404 saat hosting | Periksa SPA fallback dan `prepare-spa-shell.mjs`; jangan hanya mengunggah `index.html` |
-| Console Supabase permission/RLS/FK error | Periksa script SQL, grants, role tepercaya, dan kecocokan lesson ID; jangan matikan RLS |
-| Converter `/health` sehat tetapi upload 403 | Bearer token Worker dan converter harus identik; token tidak boleh berada di browser |
-| Converter sehat tetapi UI masih memakai renderer lama | Checkout snapshot belum memiliki integrasi Worker native; env saja tidak mengganti import converter |
-| PPTX hasilnya berbeda dari PowerPoint | Cek source pipeline dan font; review saved images sebelum publish |
-| File input 200 MB diterima tetapi konversi gagal | Periksa limit 300 slide, macro-free PPTX, timeout/memori, dan paket output 32 MiB |
-| Perubahan GitHub tidak muncul di live | GitHub commit, deploy Render, dan publish Sites merupakan langkah terpisah |
+| `npm`/`node` not recognized | Install Node, open a new terminal, check versions |
+| `npm ci` fails | Check Node version, network, and lockfile consistency; do not delete the lockfile as your first step |
+| `no such table: lesson_materials` | Run D1 migrations with `--local`; ensure the same configuration/state is used |
+| Login rejected | Verify frontend URL/key, account existence in the same Supabase project, confirmed email, and password |
+| ID `123` cannot log in | Create `employee-123@bd10.local`, or use the correct full email; cloning does not create this account |
+| Admin receives 401 | Session missing/expired; log in again and check that the Worker points to the same Supabase project |
+| Admin receives 403 | `app_metadata` role or owner email does not match; React roles do not grant server access |
+| `Admin verification is not configured` | Configure Worker `.dev.vars`; frontend `.env.local` alone is insufficient |
+| Magic link returns to production | Source hard-codes `adminAuthRedirectUrl`; use password login locally or adjust the redirect on a test branch |
+| Local lesson list is empty | New local D1/R2 does not contain production materials; create test materials |
+| Environment changes are not visible | Restart the dev server; frontend environment variables are read during development/build |
+| Route refresh returns 404 on hosting | Check SPA fallback and `prepare-spa-shell.mjs`; do not upload only `index.html` |
+| Supabase permission/RLS/FK errors in console | Check SQL scripts, grants, trusted roles, and matching lesson IDs; do not disable RLS |
+| Converter `/health` succeeds but uploads return 403 | Worker and converter bearer tokens must match; the token must not be in the browser |
+| Converter healthy but UI still uses the old renderer | The snapshot lacks native Worker integration; environment variables alone do not replace converter imports |
+| PPTX output differs from PowerPoint | Check the source pipeline and fonts; review saved images before publishing |
+| A 200 MB input is accepted but conversion fails | Check the 300-slide limit, macro-free PPTX requirement, timeout/memory, and 32 MiB output package limit |
+| GitHub changes do not appear live | GitHub commits, Render deployments, and Sites publishing are separate steps |
 
-Saat melaporkan bug, sertakan langkah reproduksi, browser, status HTTP, pesan error, dan screenshot. **Sensor token, email pribadi, password, isi `.dev.vars`, dan header Authorization.** Jangan mengirim seluruh dataset atau document pribadi jika tidak diperlukan.
+When reporting bugs, include reproduction steps, browser, HTTP status, error messages, and screenshots. **Redact tokens, personal emails, passwords, `.dev.vars` contents, and Authorization headers.** Do not send entire datasets or private documents unless needed.
 
-## 12. Kontribusi dan perlindungan data
+## 12. Contributing and data protection
 
-Fork → branch → perubahan terfokus → build/check → Pull Request. Deskripsikan perilaku sebelum/sesudah dan batas verifikasi. Jangan mengklaim end-to-end berhasil hanya karena build pass.
+Fork → branch → focused changes → build/check → Pull Request. Describe before/after behavior and verification limits. Do not claim end-to-end success just because the build passes.
 
-Repository publik ini tidak menyertakan production credentials, user records, ataupun otomatis memberikan akses ke materi private. A0 vocabulary finalized tetap read-only. Hak atas dataset, materi, BD10/ASE branding, dan aset pihak ketiga tidak otomatis diberikan oleh status repository publik; tidak ada lisensi redistribusi yang disediakan.
+This public repository does not include production credentials or user records, and does not automatically grant access to private materials. Finalized A0 vocabulary remains read-only. Public repository status does not automatically grant rights to datasets, materials, BD10/ASE branding, or third-party assets; no redistribution license is provided.
 
-### Referensi teknis resmi
+### Official technical references
 
 - [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/)
-- [Environment variables dan secrets lokal Worker](https://developers.cloudflare.com/workers/local-development/environment-variables/)
+- [Local Worker environment variables and secrets](https://developers.cloudflare.com/workers/local-development/environment-variables/)
 - [D1 local development](https://developers.cloudflare.com/d1/best-practices/local-development/)
 - [Wrangler D1 commands](https://developers.cloudflare.com/d1/wrangler-commands/)
 - [Supabase redirect URLs](https://supabase.com/docs/guides/auth/redirect-urls)
@@ -494,4 +494,4 @@ Repository publik ini tidak menyertakan production credentials, user records, at
 - [Supabase Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security)
 - [pptxtoimages](https://github.com/brkcvlk/pptxtoimages)
 
-*Dokumentasi diperbarui 6 Oktober 2026. Panduan mengacu pada file yang benar-benar tersedia di repository saat diperiksa; status source live dan snapshot dijelaskan secara terpisah.*
+*Documentation updated October 6, 2026. This guide refers to files actually available in the repository when checked; live-source and snapshot status are documented separately.*
